@@ -1,6 +1,6 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-dark';
+@import './shared/mixins',
+        './shared/reset',
+        './shared/about-dark';
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -134,4 +134,20 @@ body {
       text-shadow: 0 1px rgba(black, .4);
     }
   }
+}
+/* Changes to replicate the mockup */
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 24px;
+}
+#download-details {
+  font-size: 32px;
+}
+#custom-download {
+  font-size: 13px;
+}
+.center-text {
+  text-align: center;
 }
