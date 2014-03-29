@@ -148,12 +148,16 @@ h2 {
 #custom-download {
   font-size: 13px;
 }
+.download {
+  @extend .about;
+}
+.download-link {
+  @extend .about-links;
+  > a {
+    float: center;
+    width: 100%;
+  }
+}
 .center-text {
   text-align: center;
-}
-.download {
-  width: 200px;
-  height: 100px;
-  background-color: blue;
-  align: center;
 }

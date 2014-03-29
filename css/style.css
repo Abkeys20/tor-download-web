@@ -40,7 +40,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.about {
+.about, .download {
   margin: 70px auto 40px;
   padding: 8px;
   width: 260px;
@@ -57,7 +57,7 @@ table {
   background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3));
   -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 0 6px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 0 6px rgba(0, 0, 0, 0.4); }
-  .about a {
+  .about a, .download a {
     color: #eee;
     text-decoration: none;
     border-radius: 2px;
@@ -65,14 +65,14 @@ table {
     -moz-transition: background 0.1s;
     -o-transition: background 0.1s;
     transition: background 0.1s; }
-    .about a:hover {
+    .about a:hover, .download a:hover {
       text-decoration: none;
       background: #555;
       background: rgba(255, 255, 255, 0.15); }
 
-.about-links {
+.about-links, .download-link {
   height: 30px; }
-  .about-links > a {
+  .about-links > a, .download-link > a {
     float: left;
     width: 50%;
     line-height: 30px;
@@ -220,11 +220,9 @@ h2 {
 #custom-download {
   font-size: 13px; }
 
+.download-link > a {
+  float: center;
+  width: 100%; }
+
 .center-text {
   text-align: center; }
-
-.download {
-  width: 200px;
-  height: 100px;
-  background-color: blue;
-  align: center; }
