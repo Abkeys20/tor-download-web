@@ -11,7 +11,7 @@ This project was built by a collection of volunteers on the Tor Project Website 
 * William Papper
 * Lance Tuller
 
-How do I help?
+How can I help?
 --------------
 Join the Tor Project Website Team mailing list if you haven't already: https://lists.torproject.org/cgi-bin/mailman/listinfo/www-team
 
@@ -20,3 +20,5 @@ After that, you can help with issues being discussed there or issues in this rep
 What is the license?
 --------------------
 This project is licensed under the MIT license. See the LICENSE file for more information.
+
+Some code is modified from CSSFlow, which is also under the MIT license. See the CSSFlow LICENSE file for more information.
