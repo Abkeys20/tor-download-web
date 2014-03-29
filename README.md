@@ -17,6 +17,15 @@ Join the Tor Project Website Team mailing list if you haven't already: https://l
 
 After that, you can help with issues being discussed there or issues in this repo. Contributions are always welcome.
 
+
+
+Contribute and Earn
+-------------
+
+Donate bitcoins to this project or make commits and get tips for it. If your commit is accepted by project maintainer and there are bitcoins on its balance, you will get a tip!
+
+[![tip for next commit](http://tip4commit.com/projects/686.svg)](http://tip4commit.com/projects/686)
+
 What is the license?
 --------------------
 This project is licensed under the MIT license. See the LICENSE file for more information.
