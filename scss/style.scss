@@ -150,6 +150,7 @@ h2 {
 }
 .download {
   @extend .about;
+  margin: 0px auto 20px;
 }
 .download-link {
   @extend .about-links;
