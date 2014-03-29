@@ -224,7 +224,8 @@ h2 {
   margin: 0px auto 20px; }
 
 .download-link > a {
-  width: 100%; }
+  width: 100%;
+  font-size: 14px; }
 
 .center-text {
   text-align: center; }
