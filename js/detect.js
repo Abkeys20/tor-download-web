@@ -12,15 +12,14 @@ function preSelect() {
 	var os = detectOS();
 	if (os != null) {
 		$("select[name=os]").val(os).attr("selected", "selected");
-		//$("select[name=os]").selectmenu("refresh");	
+		//$("select[name=os]").selectmenu("refresh");
 	}
 	var architecture = detectArchitecture();
 	if (architecture != null) {
 		$("select[name=architecture]").val(architecture).attr("selected", "selected");
-		//$("select[name=archtecture]").selectmenu("refresh");	
+		//$("select[name=archtecture]").selectmenu("refresh");
 	}
 }
-
 
 // Detects language, OS version, and architecture to pre-select the dropdowns
 function detectLanguage() {
@@ -28,13 +27,13 @@ function detectLanguage() {
 	var language = navigator.language || navigator.userLanguage;
 	var startsWithArray = ["en", "ar", "de", "es", "fa", "fr", "it", "nl", "pl", "pt", "ru", "vi", "zh"];
 	var returnWithArray = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
- 	for (var i = 0; i < startsWithArray.length; i++) {
- 		// Check if the string starts with a given language
- 		if (language.lastIndexOf(startsWithArray[i], 0) === 0) {
- 			returnWithArray[i];
- 		}
- 	}
- 	return null;		
+	for (var i = 0; i < startsWithArray.length; i++) {
+		// Check if the string starts with a given language
+		if (language.lastIndexOf(startsWithArray[i], 0) === 0) {
+			returnWithArray[i];
+		}
+	}
+	return null;
 }
 
 function detectOS() {
@@ -43,15 +42,12 @@ function detectOS() {
 	var platform = navigator.platform.toLowerCase();
 	if (platform.indexOf("win") != -1) {
 		return "Windows";
-	}
-	else if (platform.indexOf("mac") != -1) {
+	} else if (platform.indexOf("mac") != -1) {
 		return "Apple OS X";
-	}
-	else if (platform.indexOf("linux") != -1 || platform.indexOf("x11") != -1 || platform.indexOf("bsd") != -1) {
+	} else if (platform.indexOf("linux") != -1 || platform.indexOf("x11") != -1 || platform.indexOf("bsd") != -1) {
 		return "Unix";
-	}
-	else {
-		return null;	
+	} else {
+		return null;
 	}
 }
 
@@ -62,17 +58,26 @@ function detectArchitecture() {
 		platform = platform.toLowerCase();
 	}
 	cpuClass = navigator.cpuClass;
-	if (platform.indexOf("64") != -1) {
-	// Needs to detect MacIntel, which signifies 64-bit Macs
-	if (platform.indexOf("64") != -1 || platform.indexOf("intel")) {
-		return "64-bit";
 	if (cpuClass !== undefined) {
 		cpuClass = cpuClass.toLowerCase();
 	}
-	else if ((platform.indexOf("86") != -1 || platform.indexOf("32") != -1) && !platform.indexOf("64") != -1) {
-		return "32-bit";
+	// First check platform, which is a more widely supported value
+	if (platform !== undefined) {
+		// Needs to detect MacIntel, which signifies 64-bit Macs
+		if (platform.indexOf("64") != -1 || platform.indexOf("intel")) {
+			return "64-bit";
+		} else if ((platform.indexOf("86") != -1 || platform.indexOf("32") != -1) && !platform.indexOf("64") != -1) {
+			return "32-bit";
+		}
 	}
-	else {
+	// If nothing useful is found in platform, check cpuClass
+	else if (cpuClass !== undefined) {
+		if (cpuClass.indexOf("64") != -1 || cpuClass.indexOf("intel")) {
+			return "64-bit";
+		} else if ((cpuClass.indexOf("86") != -1 || cpuClass.indexOf("32") != -1) && !cpuClass.indexOf("64") != -1) {
+			return "32-bit";
+		}
+	} else {
 		return null;
 	}
 }
