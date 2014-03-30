@@ -19,6 +19,7 @@ function preSelect() {
 		$("select[name=architecture]").val(architecture).attr("selected", "selected");
 		//$("select[name=archtecture]").selectmenu("refresh");
 	}
+	setDownload(language, os, architecture);
 }
 
 // Detects language, OS version, and architecture to pre-select the dropdowns
@@ -79,5 +80,32 @@ function detectArchitecture() {
 		}
 	} else {
 		return null;
+	}
+}
+
+function setDownload(language, os, architecture) {
+	// Values taken from the source code of https://www.torproject.org/download/download.html.en
+	var wintbb = 'https://www.torproject.org/dist/torbrowser/3.5.3/torbrowser-install-3.5.3_' + language + '.exe';
+	var osxtbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx32_' + language + '.zip';
+	// Apparently there is no 64-bit OS X download, even though it's in the source of the Tor Project's "All Downloads" page:
+	// var osxtbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx64_' + language + '.zip';
+	var lintbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_' + language + '.tar.xz';
+	var lintbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_' + language + '.tar.xz';
+	if (os.indexOf("Windows") != -1) {
+		$("#download-url").val(os).attr("href", wintbb);
+	}
+	else if (os.indexOf("Apple OS X") != -1) {
+		$("#download-url").val(os).attr("href", osxtbb32);
+	}
+	/* // No 64-bit OS X version seems to exist
+	else if (os.indexOf("Apple OS X") != -1 && architecture.indexOf("64-bit") != -1) {
+		$("#download-url").val(os).attr("href", osxtbb64);
+	}
+	*/
+	else if (os.indexOf("Unix") != -1 && architecture.indexOf("32-bit") != -1) {
+		$("#download-url").val(os).attr("href", lintbb32);
+	}
+	else if (os.indexOf("Unix") != -1 && architecture.indexOf("64-bit") != -1) {
+		$("#download-url").val(os).attr("href", lintbb64);
 	}
 }
