@@ -58,11 +58,16 @@ function detectOS() {
 function detectArchitecture() {
 	// Checks based on testing reported here: http://stackoverflow.com/a/6267019
 	platform = navigator.platform;
+	if (platform !== undefined) {
+		platform = platform.toLowerCase();
+	}
 	cpuClass = navigator.cpuClass;
 	if (platform.indexOf("64") != -1) {
 	// Needs to detect MacIntel, which signifies 64-bit Macs
 	if (platform.indexOf("64") != -1 || platform.indexOf("intel")) {
 		return "64-bit";
+	if (cpuClass !== undefined) {
+		cpuClass = cpuClass.toLowerCase();
 	}
 	else if ((platform.indexOf("86") != -1 || platform.indexOf("32") != -1) && !platform.indexOf("64") != -1) {
 		return "32-bit";
