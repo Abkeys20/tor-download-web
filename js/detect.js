@@ -113,7 +113,6 @@ function initializeChange() {
 	$("select[name=language]").change(onLanguageChange());
 	$("select[name=os]").change(onOSChange());
 	$("select[name=architecture]").change(onArchitectureChange());
-	$("select[name=release]").change(onReleaseChange());
 }
 
 function onLanguageChange() {
@@ -134,12 +133,5 @@ function onArchitectureChange() {
 	var language = detectLanguage();
 	var os = detectOS();
 	var architecture = $("select[name=architecture]").val();
-	setDownload(language, os, architecture);
-}
-
-function onReleaseChange() {
-	var language = detectLanguage();
-	var os = detectOS();
-	var architecture = detectArchitecture();
 	setDownload(language, os, architecture);
 }
