@@ -7,17 +7,17 @@ function preSelect() {
 	var language = detectLanguage();
 	if (language != null) {
 		$("select[name=language]").val(language).attr("selected", "selected");
-		$("select[name=language]").selectmenu("refresh");
+		//$("select[name=language]").selectmenu("refresh");
 	}
 	var os = detectOS();
 	if (os != null) {
 		$("select[name=os]").val(os).attr("selected", "selected");
-		$("select[name=os]").selectmenu("refresh");	
+		//$("select[name=os]").selectmenu("refresh");	
 	}
 	var architecture = detectArchitecture();
 	if (archtecture != null) {
 		$("select[name=architecture]").val(architecture).attr("selected", "selected");
-		$("select[name=archtecture]").selectmenu("refresh");	
+		//$("select[name=archtecture]").selectmenu("refresh");	
 	}
 }
 
