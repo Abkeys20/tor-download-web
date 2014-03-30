@@ -4,7 +4,21 @@ $(document).ready(function() {
 });
 
 function preSelect() {
-	
+	var language = detectLanguage();
+	if (language != null) {
+		$("#language").val(language).attr("selected", "selected");
+		$("#language").selectmenu("refresh");
+	}
+	var os = detectOS();
+	if (os != null) {
+		$("#os").val(os).attr("selected", "selected");
+		$("#os").selectmenu("refresh");	
+	}
+	var architecture = detectArchitecture();
+	if (archtecture != null) {
+		$("#architecture").val(architecture).attr("selected", "selected");
+		$("#archtecture").selectmenu("refresh");	
+	}
 }
 
 
@@ -18,7 +32,8 @@ function detectLanguage() {
  		if (language.startsWith(startsWithArray[i]) {
  			returnWithArray[i];
  		}
- 	}		
+ 	}
+ 	return null;		
 }
 
 function detectOS() {
@@ -28,11 +43,14 @@ function detectOS() {
 	if (platform.contains("win")) {
 		return "Windows";
 	}
-	if (platform.contains("mac")) {
+	else if (platform.contains("mac")) {
 		return "Apple OS X";
 	}
-	if (platform.contains("linux") || platform.contains("x11") || platform.contains("bsd")) {
+	else if (platform.contains("linux") || platform.contains("x11") || platform.contains("bsd")) {
 		return "Unix";
+	}
+	else {
+		return null;	
 	}
 }
 
@@ -43,7 +61,10 @@ function detectArchitecture() {
 	if (platform.contains("64")) {
 		return "64-bit";
 	}
-	if ((platform.contains("86") || platform.contains("32")) && !platform.contains("64") {
+	else if ((platform.contains("86") || platform.contains("32")) && !platform.contains("64") {
 		return "32-bit";
+	}
+	else {
+		return null;
 	}
 }
