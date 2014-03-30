@@ -64,18 +64,18 @@ function detectArchitecture() {
 	// First check platform, which is a more widely supported value
 	if (platform !== undefined) {
 		// Needs to detect MacIntel, which signifies 64-bit Macs
-		if (platform.indexOf("64") != -1 || platform.indexOf("intel")) {
-			return "64-bit";
-		} else if ((platform.indexOf("86") != -1 || platform.indexOf("32") != -1) && !platform.indexOf("64") != -1) {
+		if ((platform.indexOf("86") != -1 || platform.indexOf("32") != -1) && !platform.indexOf("64") != -1) {
 			return "32-bit";
+		} else if (platform.indexOf("64") != -1 || platform.indexOf("intel")) {
+			return "64-bit";
 		}
 	}
 	// If nothing useful is found in platform, check cpuClass
 	else if (cpuClass !== undefined) {
-		if (cpuClass.indexOf("64") != -1 || cpuClass.indexOf("intel")) {
-			return "64-bit";
-		} else if ((cpuClass.indexOf("86") != -1 || cpuClass.indexOf("32") != -1) && !cpuClass.indexOf("64") != -1) {
+		if ((cpuClass.indexOf("86") != -1 || cpuClass.indexOf("32") != -1) && !cpuClass.indexOf("64") != -1) {
 			return "32-bit";
+		} else if (cpuClass.indexOf("64") != -1 || cpuClass.indexOf("intel")) {
+			return "64-bit";
 		}
 	} else {
 		return null;
