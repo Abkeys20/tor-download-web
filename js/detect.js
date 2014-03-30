@@ -1,23 +1,23 @@
 // Pre-selects the dropdown defaults using jQuery
-$(document).on( "pagecreate", function() {
+$(document).ready(function() {
 	preSelect();
 });
 
 function preSelect() {
 	var language = detectLanguage();
 	if (language != null) {
-		$("#language").val(language).attr("selected", "selected");
-		$("#language").selectmenu("refresh");
+		$("select[name=language]").val(language).attr("selected", "selected");
+		$("select[name=language]").selectmenu("refresh");
 	}
 	var os = detectOS();
 	if (os != null) {
-		$("#os").val(os).attr("selected", "selected");
-		$("#os").selectmenu("refresh");	
+		$("select[name=os]").val(os).attr("selected", "selected");
+		$("select[name=os]").selectmenu("refresh");	
 	}
 	var architecture = detectArchitecture();
 	if (archtecture != null) {
-		$("#architecture").val(architecture).attr("selected", "selected");
-		$("#archtecture").selectmenu("refresh");	
+		$("select[name=architecture]").val(architecture).attr("selected", "selected");
+		$("select[name=archtecture]").selectmenu("refresh");	
 	}
 }
 
