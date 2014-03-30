@@ -1,6 +1,14 @@
 // Detects language, OS version, and architecture to pre-select the dropdowns
 function detectLanguage() {
-
+	// Matches the language preference to the closest Tor Browser Bundle language option. For example, if the user's preference is en-GB, en-US will be used instead.
+	var language = navigator.language || navigator.userLanguage;
+	var startsWithArray = ["en", "ar", "de", "es", "fa", "fr", "it", "nl", "pl", "pt", "ru", "vi", "zh"];
+	var returnWithArray = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
+ 	for (int i = 0; i < startsWith.length; i++) {
+ 		if (language.startsWith(startsWithArray[i]) {
+ 			returnWithArray[i];
+ 		}
+ 	}		
 }
 
 function detectOS() {
