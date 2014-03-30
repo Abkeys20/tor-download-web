@@ -30,7 +30,7 @@ function detectLanguage() {
 	for (var i = 0; i < startsWithArray.length; i++) {
 		// Check if the string starts with a given language
 		if (language.lastIndexOf(startsWithArray[i], 0) === 0) {
-			returnWithArray[i];
+			return returnWithArray[i];
 		}
 	}
 	return null;
