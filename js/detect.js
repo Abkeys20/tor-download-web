@@ -15,13 +15,13 @@ function detectOS() {
 	// This method is chosen instead of Stoimen's browser detection library, which is used on the current Tor Project download-easy page (found here: http://www.stoimen.com/blog/2009/07/16/jquery-browser-and-os-detection-plugin/).
 	// There's no need for us to use browser detection, so we can just detect the OS here instead.
 	var platform = navigator.platform.toLowerCase();
-	if (platform.indexOf("win") != -1) {
+	if (platform.contains("win")) {
 		return "Windows";
 	}
-	if (platform.indexOf("mac") != -1) {
+	if (platform.contains("mac")) {
 		return "Apple OS X";
 	}
-	if (navigator.platform.toLowerCase().indexOf("linux") != -1 || navigator.platform.toLowerCase.indexOf("x11") != -1 || navigator.platform.toLowerCase.indexOf("bsd") != -1) {
+	if (platform.contains("linux") || platform.contains("x11") || platform.contains("bsd")) {
 		return "Unix";
 	}
 }
