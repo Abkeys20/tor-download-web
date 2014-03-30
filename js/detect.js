@@ -1,3 +1,13 @@
+// Pre-selects the dropdown defaults using jQuery
+$(document).ready(function() {
+	preSelect();
+});
+
+function preSelect() {
+	
+}
+
+
 // Detects language, OS version, and architecture to pre-select the dropdowns
 function detectLanguage() {
 	// Matches the language preference to the closest Tor Browser Bundle language option. For example, if the user's preference is en-GB, en-US will be used instead.
