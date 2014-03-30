@@ -1,4 +1,4 @@
-// Pre-selects the dropdown defaults using jQuery
+// Pre-selects the dropdown defaults using jQuery and automatically changes the download button URL
 $(document).ready(function() {
 	preSelect();
 });
@@ -93,19 +93,40 @@ function setDownload(language, os, architecture) {
 	var lintbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_' + language + '.tar.xz';
 	if (os.indexOf("Windows") != -1) {
 		$("#download-url").val(os).attr("href", wintbb);
-	}
-	else if (os.indexOf("Apple OS X") != -1) {
+	} else if (os.indexOf("Apple OS X") != -1) {
 		$("#download-url").val(os).attr("href", osxtbb32);
 	}
-	/* // No 64-bit OS X version seems to exist
-	else if (os.indexOf("Apple OS X") != -1 && architecture.indexOf("64-bit") != -1) {
-		$("#download-url").val(os).attr("href", osxtbb64);
-	}
-	*/
+	/* // No 64-bit OS X version seems to exist else
+	  if (os.indexOf("Apple OS X") != -1 && architecture.indexOf("64-bit") != -1) {
+	 $("#download-url").val(os).attr("href", osxtbb64);
+	 }
+	 */
 	else if (os.indexOf("Unix") != -1 && architecture.indexOf("32-bit") != -1) {
 		$("#download-url").val(os).attr("href", lintbb32);
-	}
-	else if (os.indexOf("Unix") != -1 && architecture.indexOf("64-bit") != -1) {
+	} else if (os.indexOf("Unix") != -1 && architecture.indexOf("64-bit") != -1) {
 		$("#download-url").val(os).attr("href", lintbb64);
 	}
+}
+
+function initializeChange() {
+	$("select[name=language]").change(onLanguageChange());
+	$("select[name=os]").change(onOSChange());
+	$("select[name=architecture]").change(onArchitectureChange());
+	$("select[name=release]").change(onReleaseChange());
+}
+
+function onLanguageChange() {
+
+}
+
+function onOSChange() {
+
+}
+
+function onArchitectureChange() {
+
+}
+
+function onReleaseChange() {
+
 }
