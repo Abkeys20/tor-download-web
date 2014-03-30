@@ -1,5 +1,5 @@
 // Pre-selects the dropdown defaults using jQuery
-$(document).ready(function() {
+$(document).on( "pagecreate", function() {
 	preSelect();
 });
 
