@@ -27,5 +27,13 @@ function detectOS() {
 }
 
 function detectArchitecture() {
-
+	// Checks based on testing reported here: http://stackoverflow.com/a/6267019
+	platform = navigator.platform;
+	cpuClass = navigator.cpuClass;
+	if (platform.contains("64")) {
+		return "64-bit";
+	}
+	if ((platform.contains("86") || platform.contains("32")) && !platform.contains("64") {
+		return "32-bit";
+	}
 }
