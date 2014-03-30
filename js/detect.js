@@ -20,6 +20,7 @@ function preSelect() {
 		//$("select[name=archtecture]").selectmenu("refresh");
 	}
 	setDownload(language, os, architecture);
+	initializeChange();
 }
 
 // Detects language, OS version, and architecture to pre-select the dropdowns
@@ -116,17 +117,29 @@ function initializeChange() {
 }
 
 function onLanguageChange() {
-
+	var language = $("select[name=language]").val();
+	var os = detectOS();
+	var architecture = detectArchitecture();
+	setDownload(language, os, architecture);
 }
 
 function onOSChange() {
-
+	var language = detectLanguage();
+	var os = $("select[name=os]").val();
+	var architecture = detectArchitecture();
+	setDownload(language, os, architecture);
 }
 
 function onArchitectureChange() {
-
+	var language = detectLanguage();
+	var os = detectOS();
+	var architecture = $("select[name=architecture]").val();
+	setDownload(language, os, architecture);
 }
 
 function onReleaseChange() {
-
+	var language = detectLanguage();
+	var os = detectOS();
+	var architecture = detectArchitecture();
+	setDownload(language, os, architecture);
 }
