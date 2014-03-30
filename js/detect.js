@@ -60,6 +60,8 @@ function detectArchitecture() {
 	platform = navigator.platform;
 	cpuClass = navigator.cpuClass;
 	if (platform.indexOf("64") != -1) {
+	// Needs to detect MacIntel, which signifies 64-bit Macs
+	if (platform.indexOf("64") != -1 || platform.indexOf("intel")) {
 		return "64-bit";
 	}
 	else if ((platform.indexOf("86") != -1 || platform.indexOf("32") != -1) && !platform.indexOf("64") != -1) {
