@@ -159,6 +159,9 @@ h2 {
     font-size: 14px;
   }
 }
+.about-beta {
+  @extend .about-author;
+}
 .center-text {
   text-align: center;
 }
