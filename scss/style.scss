@@ -153,14 +153,14 @@ h2 {
     font-size: 14px;
   }
 }
-.about-download {
-  @extend .about-author;
-}
 .about-beta {
   @extend .about-author;
 }
 .center-text {
   text-align: center;
+}
+#about-download {
+  @extend .about-author;
 }
 #download-details {
   font-size: 32px;

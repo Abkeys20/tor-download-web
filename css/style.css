@@ -78,9 +78,9 @@ table {
     line-height: 30px;
     font-size: 12px; }
 
-.about-author, .about-download, .about-beta {
+.about-author, .about-beta, #about-download {
   margin-top: 5px; }
-  .about-author > a, .about-download > a, .about-beta > a {
+  .about-author > a, .about-beta > a, #about-download > a {
     padding: 1px 3px;
     margin: 0 -1px; }
 
