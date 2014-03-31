@@ -214,12 +214,6 @@ h1 {
 h2 {
   font-size: 24px; }
 
-#download-details {
-  font-size: 32px; }
-
-#custom-download {
-  font-size: 13px; }
-
 .download {
   margin: 0px auto 20px; }
 
@@ -229,3 +223,9 @@ h2 {
 
 .center-text {
   text-align: center; }
+
+#download-details {
+  font-size: 32px; }
+
+#custom-download {
+  font-size: 13px; }
