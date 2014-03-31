@@ -106,6 +106,8 @@ function setDownload(language, os, architecture) {
 	} else if (os.indexOf("Unix") != -1 && architecture.indexOf("64-bit") != -1) {
 		$("#download-url").val(os).attr("href", lintbb64);
 	}
+	var aboutDownload = "For " + os + " in " + language;
+	$("#about-download").text(aboutDownload);
 }
 
 function initializeChange() {
