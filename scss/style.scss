@@ -153,6 +153,9 @@ h2 {
     font-size: 14px;
   }
 }
+.about-download {
+  @extend .about-author;
+}
 .about-beta {
   @extend .about-author;
 }
