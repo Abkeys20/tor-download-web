@@ -97,11 +97,10 @@ function setDownload(language, os, architecture) {
 	} else if (os.indexOf("Apple OS X") != -1) {
 		$("#download-url").val(os).attr("href", osxtbb32);
 	}
-	/* // No 64-bit OS X version seems to exist else
-	  if (os.indexOf("Apple OS X") != -1 && architecture.indexOf("64-bit") != -1) {
-	 $("#download-url").val(os).attr("href", osxtbb64);
-	 }
-	 */
+	// No 64-bit OS X version seems to exist
+	// else if (os.indexOf("Apple OS X") != -1 && architecture.indexOf("64-bit") != -1) {
+	// $("#download-url").val(os).attr("href", osxtbb64);
+	// }
 	else if (os.indexOf("Unix") != -1 && architecture.indexOf("32-bit") != -1) {
 		$("#download-url").val(os).attr("href", lintbb32);
 	} else if (os.indexOf("Unix") != -1 && architecture.indexOf("64-bit") != -1) {
