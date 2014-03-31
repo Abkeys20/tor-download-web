@@ -68,7 +68,7 @@ function detectArchitecture() {
 		// Needs to detect MacIntel, which signifies 64-bit Macs
 		if ((platform.indexOf("86") != -1 || platform.indexOf("32") != -1) && !platform.indexOf("64") != -1) {
 			return "32-bit";
-		} else if (platform.indexOf("64") != -1 || platform.indexOf("intel")) {
+		} else if (platform.indexOf("64") != -1 || platform.indexOf("intel") != -1) {
 			return "64-bit";
 		}
 	}
@@ -76,7 +76,7 @@ function detectArchitecture() {
 	else if (cpuClass !== undefined) {
 		if ((cpuClass.indexOf("86") != -1 || cpuClass.indexOf("32") != -1) && !cpuClass.indexOf("64") != -1) {
 			return "32-bit";
-		} else if (cpuClass.indexOf("64") != -1 || cpuClass.indexOf("intel")) {
+		} else if (cpuClass.indexOf("64") != -1 || cpuClass.indexOf("intel") != -1) {
 			return "64-bit";
 		}
 	} else {
