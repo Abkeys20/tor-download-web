@@ -5,17 +5,17 @@ $(document).ready(function() {
 
 function preSelect() {
 	var language = detectLanguage();
-	if (language != null) {
+	if (language !== null) {
 		$("select[name=language]").val(language).attr("selected", "selected");
 		//$("select[name=language]").selectmenu("refresh");
 	}
 	var os = detectOS();
-	if (os != null) {
+	if (os !== null) {
 		$("select[name=os]").val(os).attr("selected", "selected");
 		//$("select[name=os]").selectmenu("refresh");
 	}
 	var architecture = detectArchitecture();
-	if (architecture != null) {
+	if (architecture !== null) {
 		$("select[name=architecture]").val(architecture).attr("selected", "selected");
 		//$("select[name=archtecture]").selectmenu("refresh");
 	}
@@ -42,11 +42,11 @@ function detectOS() {
 	// This method is chosen instead of Stoimen's browser detection library, which is used on the current Tor Project download-easy page (found here: http://www.stoimen.com/blog/2009/07/16/jquery-browser-and-os-detection-plugin/).
 	// There's no need for us to use browser detection, so we can just detect the OS here instead.
 	var platform = navigator.platform.toLowerCase();
-	if (platform.indexOf("win") != -1) {
+	if (platform.indexOf("win") !== -1) {
 		return "Windows";
-	} else if (platform.indexOf("mac") != -1) {
+	} else if (platform.indexOf("mac") !== -1) {
 		return "Apple OS X";
-	} else if (platform.indexOf("linux") != -1 || platform.indexOf("x11") != -1 || platform.indexOf("bsd") != -1) {
+	} else if (platform.indexOf("linux") !== -1 || platform.indexOf("x11") !== -1 || platform.indexOf("bsd") !== -1) {
 		return "Unix";
 	} else {
 		return null;
@@ -55,28 +55,28 @@ function detectOS() {
 
 function detectArchitecture() {
 	// Checks based on testing reported here: http://stackoverflow.com/a/6267019
-	platform = navigator.platform;
+	var platform = navigator.platform;
 	if (platform !== undefined) {
 		platform = platform.toLowerCase();
 	}
-	cpuClass = navigator.cpuClass;
+	var cpuClass = navigator.cpuClass;
 	if (cpuClass !== undefined) {
 		cpuClass = cpuClass.toLowerCase();
 	}
 	// First check platform, which is a more widely supported value
 	if (platform !== undefined) {
 		// Needs to detect MacIntel, which signifies 64-bit Macs
-		if ((platform.indexOf("86") != -1 || platform.indexOf("32") != -1) && !platform.indexOf("64") != -1) {
+		if ((platform.indexOf("86") !== -1 || platform.indexOf("32") !== -1) && !platform.indexOf("64") !== -1) {
 			return "32-bit";
-		} else if (platform.indexOf("64") != -1 || platform.indexOf("intel") != -1) {
+		} else if (platform.indexOf("64") !== -1 || platform.indexOf("intel") !== -1) {
 			return "64-bit";
 		}
 	}
 	// If nothing useful is found in platform, check cpuClass
 	else if (cpuClass !== undefined) {
-		if ((cpuClass.indexOf("86") != -1 || cpuClass.indexOf("32") != -1) && !cpuClass.indexOf("64") != -1) {
+		if ((cpuClass.indexOf("86") !== -1 || cpuClass.indexOf("32") !== -1) && !cpuClass.indexOf("64") !== -1) {
 			return "32-bit";
-		} else if (cpuClass.indexOf("64") != -1 || cpuClass.indexOf("intel") != -1) {
+		} else if (cpuClass.indexOf("64") !== -1 || cpuClass.indexOf("intel") !== -1) {
 			return "64-bit";
 		}
 	} else {
@@ -109,8 +109,8 @@ function setDownload(language, os, architecture) {
 	// Make the language code human-readable
 	var languageCodes = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
 	var humanReadable = ["English", "&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;", "Deutsch", "&#x0045;&#x0073;&#x0070;&#x0061;&#x00f1;&#x006f;&#x006c;", "&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;", "&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;", "Italiano", "Nederlands", "Polish", "&#x0050;&#x006f;&#x0072;&#x0074;&#x0075;&#x0067;&#x0075;&#x00ea;&#x0073;", "&#x0420;&#x0443;&#x0441;&#x0441;&#x043a;&#x0438;&#x0439;", "Vietnamese", "&#x7b80;&#x4f53;&#x5b57;"]
-	humanReadableIndex = languageCodes.indexOf(language);
-	if (humanReadableIndex != undefined) {
+	var humanReadableIndex = languageCodes.indexOf(language);
+	if (humanReadableIndex !== undefined) {
 		var humanReadableLanguage = humanReadable[humanReadableIndex];
 		var aboutDownload = "For " + os + " in " + humanReadableLanguage;
 		$("#about-download").text(aboutDownload);
