@@ -14,8 +14,7 @@ function preSelect() {
 		$("select[name=os]").val(os).attr("selected", "selected");
 		//$("select[name=os]").selectmenu("refresh");
 	}
-	var architecture = detectArchitecture();
-	setDownload(language, os, architecture);
+	setDownload(language, os);
 	initializeChange();
 }
 
@@ -43,7 +42,18 @@ function detectOS() {
 	} else if (platform.indexOf("mac") !== -1) {
 		return "Apple OS X";
 	} else if (platform.indexOf("linux") !== -1 || platform.indexOf("x11") !== -1 || platform.indexOf("bsd") !== -1) {
-		return "Unix";
+	    var architecture = detectArchitecture();
+	    if (architecture !== undefined) {
+	        if (architecture.indexOf("32-bit") !== -1) {
+		        return "Unix 32-bit";
+	        }
+	        else if (architecture.indexOf("64-bit") !== -1) {
+	            return "Unix 64-bit";
+	        }
+	        else {
+	            return null;
+	        }
+	    }
 	} else {
 		return null;
 	}
@@ -80,7 +90,7 @@ function detectArchitecture() {
 	}
 }
 
-function setDownload(language, os, architecture) {
+function setDownload(language, os) {
 	// Values taken from the source code of https://www.torproject.org/download/download.html.en
 	var wintbb = 'https://www.torproject.org/dist/torbrowser/3.5.3/torbrowser-install-3.5.3_' + language + '.exe';
 	var osxtbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx32_' + language + '.zip';
@@ -97,9 +107,9 @@ function setDownload(language, os, architecture) {
 	// else if (os.indexOf("Apple OS X") != -1 && architecture.indexOf("64-bit") != -1) {
 	// $("#download-url").val(os).attr("href", osxtbb64);
 	// }
-	else if (os.indexOf("Unix") != -1 && architecture.indexOf("32-bit") != -1) {
+	else if (os.indexOf("Unix 32-bit") != -1) {
 		$("#download-url").val(os).attr("href", lintbb32);
-	} else if (os.indexOf("Unix") != -1 && architecture.indexOf("64-bit") != -1) {
+	} else if (os.indexOf("Unix 64-bit") != -1) {
 		$("#download-url").val(os).attr("href", lintbb64);
 	}
 	// Make the language code human-readable
