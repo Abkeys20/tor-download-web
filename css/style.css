@@ -206,7 +206,8 @@ body {
     .dropdown-dark .dropdown-select > option {
       background: #444;
       text-shadow: 0 1px rgba(0, 0, 0, 0.4); }
-
+/* Messy fix for Safari ignoring spacing btw Language and OS Selectors */
+.safari #safarifix {height:5px;}
 /* Changes to replicate the mockup */
 h1 {
   font-size: 24px; }
