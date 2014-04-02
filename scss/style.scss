@@ -168,3 +168,6 @@ h2 {
 #custom-download {
   font-size: 13px;
 }
+
+/* Messy fix for Safari ignoring spacing between Language and OS Selectors */
+.safari #safarifix {height:5px;}
