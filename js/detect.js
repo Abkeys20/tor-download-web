@@ -42,18 +42,18 @@ function detectOS() {
 	} else if (platform.indexOf("mac") !== -1) {
 		return "Apple OS X";
 	} else if (platform.indexOf("linux") !== -1 || platform.indexOf("x11") !== -1 || platform.indexOf("bsd") !== -1) {
-	    var architecture = detectArchitecture();
-	    if (architecture !== undefined) {
-	        if (architecture.indexOf("32-bit") !== -1) {
-		        return "Unix 32-bit";
-	        }
-	        else if (architecture.indexOf("64-bit") !== -1) {
-	            return "Unix 64-bit";
-	        }
-	        else {
-	            return null;
-	        }
-	    }
+        var architecture = detectArchitecture();
+        if (architecture !== undefined) {
+            if (architecture.indexOf("32-bit") !== -1) {
+                return "Unix 32-bit";
+            }
+            else if (architecture.indexOf("64-bit") !== -1) {
+                return "Unix 64-bit";
+            }
+            else {
+                return null;
+            }
+        }
 	} else {
 		return null;
 	}
