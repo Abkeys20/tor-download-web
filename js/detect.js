@@ -15,10 +15,6 @@ function preSelect() {
 		//$("select[name=os]").selectmenu("refresh");
 	}
 	var architecture = detectArchitecture();
-	if (architecture !== null) {
-		$("select[name=architecture]").val(architecture).attr("selected", "selected");
-		//$("select[name=archtecture]").selectmenu("refresh");
-	}
 	setDownload(language, os, architecture);
 	initializeChange();
 }
