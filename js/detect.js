@@ -37,12 +37,13 @@ function detectOS() {
 	// This method is chosen instead of Stoimen's browser detection library, which is used on the current Tor Project download-easy page (found here: http://www.stoimen.com/blog/2009/07/16/jquery-browser-and-os-detection-plugin/).
 	// There's no need for us to use browser detection, so we can just detect the OS here instead.
 	var platform = navigator.platform.toLowerCase();
-	if (platform.indexOf("win") !== -1) {
+	var architecture = detectArchitecture();
+	// Check the architecture to ensure that Windows downloads are not being presented to an ARM Surface tablet, for example, or that Intel-based OS X downloads are not being presented to PowerPC Macs
+	if (platform.indexOf("win") !== -1 && architecture !== undefined && (architecture.indexOf("32-bit") !== -1 || architecture.indexOf("64-bit") !== -1)) {
 		return "Windows";
-	} else if (platform.indexOf("mac") !== -1) {
+	} else if (platform.indexOf("mac") !== -1 && architecture !== undefined && (architecture.indexOf("32-bit") !== -1 || architecture.indexOf("64-bit") !== -1)) {
 		return "Apple OS X";
 	} else if (platform.indexOf("linux") !== -1 || platform.indexOf("x11") !== -1 || platform.indexOf("bsd") !== -1) {
-        var architecture = detectArchitecture();
         if (architecture !== undefined) {
             if (architecture.indexOf("32-bit") !== -1) {
                 return "Unix 32-bit";
