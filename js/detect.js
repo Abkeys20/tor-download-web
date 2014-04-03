@@ -2,20 +2,22 @@
 $(document).ready(function() {
 	preSelect();
 });
-
+var templang;
+var tempos;
 function preSelect() {
 	var language = detectLanguage();
+	templang = language;
 	if (language !== null) {
 		$("select[name=language]").val(language).attr("selected", "selected");
 		//$("select[name=language]").selectmenu("refresh");
 	}
 	var os = detectOS();
+	tempos = os;
 	if (os !== null) {
 		$("select[name=os]").val(os).attr("selected", "selected");
 		//$("select[name=os]").selectmenu("refresh");
 	}
 	setDownload(language, os);
-	initializeChange();
 }
 
 // Detects language, OS version, and architecture to pre-select the dropdowns
@@ -126,12 +128,14 @@ function setDownload(language, os) {
 
 function onLanguageChange() {
 	var language = $("select[name=language]").val();
-	var os = detectOS();
+	templang = language;
+	var os = tempos;
 	setDownload(language, os);
 }
 
 function onOSChange() {
-	var language = detectLanguage();
+	var language = templang;
 	var os = $("select[name=os]").val();
+	tempos = os;
 	setDownload(language, os);
 }
