@@ -127,13 +127,11 @@ function setDownload(language, os) {
 function onLanguageChange() {
 	var language = $("select[name=language]").val();
 	var os = detectOS();
-	var architecture = detectArchitecture();
-	setDownload(language, os, architecture);
+	setDownload(language, os);
 }
 
 function onOSChange() {
 	var language = detectLanguage();
 	var os = $("select[name=os]").val();
-	var architecture = detectArchitecture();
-	setDownload(language, os, architecture);
+	setDownload(language, os);
 }
