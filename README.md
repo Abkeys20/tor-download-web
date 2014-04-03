@@ -10,6 +10,7 @@ This project was built by a collection of volunteers on the Tor Project Website 
 
 * William Papper
 * Lance Tuller
+* David Silverman
 
 How can I help?
 --------------
