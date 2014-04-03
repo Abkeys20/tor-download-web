@@ -115,18 +115,13 @@ function setDownload(language, os) {
 	}
 	// Make the language code human-readable
 	var languageCodes = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
-	var humanReadable = ["English", "&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;", "Deutsch", "&#x0045;&#x0073;&#x0070;&#x0061;&#x00f1;&#x006f;&#x006c;", "&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;", "&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;", "Italiano", "Nederlands", "Polish", "&#x0050;&#x006f;&#x0072;&#x0074;&#x0075;&#x0067;&#x0075;&#x00ea;&#x0073;", "&#x0420;&#x0443;&#x0441;&#x0441;&#x043a;&#x0438;&#x0439;", "Vietnamese", "&#x7b80;&#x4f53;&#x5b57;"]
+	var humanReadable = ["English", "&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;", "Deutsch", "Español", "&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;", "&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;", "Italiano", "Nederlands", "Polish", "&#x0050;&#x006f;&#x0072;&#x0074;&#x0075;&#x0067;&#x0075;&#x00ea;&#x0073;", "&#x0420;&#x0443;&#x0441;&#x0441;&#x043a;&#x0438;&#x0439;", "Vietnamese", "&#x7b80;&#x4f53;&#x5b57;"]
 	var humanReadableIndex = languageCodes.indexOf(language);
 	if (humanReadableIndex !== undefined) {
 		var humanReadableLanguage = humanReadable[humanReadableIndex];
 		var aboutDownload = "For " + os + " in " + humanReadableLanguage;
 		$("#about-download").text(aboutDownload);
 	}
-}
-
-function initializeChange() {
-	$("select[name=language]").change(onLanguageChange());
-	$("select[name=os]").change(onOSChange());
 }
 
 function onLanguageChange() {
