@@ -1,6 +1,7 @@
 // Pre-selects the dropdown defaults using jQuery and automatically changes the download button URL
 $(document).ready(function() {
 	preSelect();
+
 });
 
 function preSelect() {
@@ -127,7 +128,6 @@ function setDownload(language, os) {
 function initializeChange() {
 	$("select[name=language]").change(onLanguageChange());
 	$("select[name=os]").change(onOSChange());
-	$("select[name=architecture]").change(onArchitectureChange());
 }
 
 function onLanguageChange() {
@@ -141,12 +141,5 @@ function onOSChange() {
 	var language = detectLanguage();
 	var os = $("select[name=os]").val();
 	var architecture = detectArchitecture();
-	setDownload(language, os, architecture);
-}
-
-function onArchitectureChange() {
-	var language = detectLanguage();
-	var os = detectOS();
-	var architecture = $("select[name=architecture]").val();
 	setDownload(language, os, architecture);
 }
