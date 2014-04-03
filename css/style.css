@@ -65,7 +65,7 @@ table {
     -moz-transition: background 0.1s;
     -o-transition: background 0.1s;
     transition: background 0.1s; }
-    .about a:hover, .download a:hover {
+    .about a:hover, .download:hover {
       text-decoration: none;
       background: #555;
       background: rgba(255, 255, 255, 0.15); }
