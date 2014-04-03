@@ -1,6 +1,7 @@
 // Pre-selects the dropdown defaults using jQuery and automatically changes the download button URL
 $(document).ready(function() {
 	preSelect();
+}
 });
 
 function preSelect() {
@@ -119,7 +120,7 @@ function setDownload(language, os) {
 	var humanReadableIndex = languageCodes.indexOf(language);
 	if (humanReadableIndex !== undefined) {
 		var humanReadableLanguage = humanReadable[humanReadableIndex];
-		var aboutDownload = "For " + os + " in " + humanReadableLanguage;
+		var aboutDownload = "Tor Browser for " + os + " in " + humanReadableLanguage;
 		$("#about-download").text(aboutDownload);
 	}
 }
