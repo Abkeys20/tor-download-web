@@ -125,11 +125,6 @@ function setDownload(language, os) {
 	}
 }
 
-function initializeChange() {
-	$("select[name=language]").change(onLanguageChange());
-	$("select[name=os]").change(onOSChange());
-}
-
 function onLanguageChange() {
 	var language = $("select[name=language]").val();
 	var os = detectOS();
