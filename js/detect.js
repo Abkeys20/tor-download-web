@@ -1,7 +1,7 @@
 // Pre-selects the dropdown defaults using jQuery and automatically changes the download button URL
 $(document).ready(function() {
 	preSelect();
-}
+
 });
 
 function preSelect() {
