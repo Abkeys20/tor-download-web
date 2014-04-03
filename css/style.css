@@ -239,3 +239,6 @@ text-decoration: none;
 /* Messy fix for Safari ignoring spacing between Language and OS Selectors */
 .safari #safarifix {
   height: 5px; }
+a:visited{
+text-decoration: none;
+}
