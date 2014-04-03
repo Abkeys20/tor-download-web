@@ -46,10 +46,10 @@ function detectOS() {
 	} else if (platform.indexOf("linux") !== -1 || platform.indexOf("x11") !== -1 || platform.indexOf("bsd") !== -1) {
         if (architecture !== undefined) {
             if (architecture.indexOf("32-bit") !== -1) {
-                return "Unix 32-bit";
+                return "Linux/BSD 32-bit";
             }
             else if (architecture.indexOf("64-bit") !== -1) {
-                return "Unix 64-bit";
+                return "Linux/BSD 64-bit";
             }
             else {
                 return null;
@@ -108,9 +108,9 @@ function setDownload(language, os) {
 	// else if (os.indexOf("Apple OS X") != -1 && architecture.indexOf("64-bit") != -1) {
 	// $("#download-url").val(os).attr("href", osxtbb64);
 	// }
-	else if (os.indexOf("Unix 32-bit") !== -1) {
+	else if (os.indexOf("Linux/BSD 32-bit") !== -1) {
 		$("#download-url").val(os).attr("href", lintbb32);
-	} else if (os.indexOf("Unix 64-bit") !== -1) {
+	} else if (os.indexOf("Linux/BSD 64-bit") !== -1) {
 		$("#download-url").val(os).attr("href", lintbb64);
 	}
 	// Make the language code human-readable
