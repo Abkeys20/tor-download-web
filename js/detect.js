@@ -49,18 +49,16 @@ function detectOS() {
 	} else if (platform.indexOf("mac") !== -1 && architecture !== undefined && (architecture.indexOf("32-bit") !== -1 || architecture.indexOf("64-bit") !== -1)) {
 		return "Apple OS X";
 	} else if (platform.indexOf("linux") !== -1 || platform.indexOf("x11") !== -1 || platform.indexOf("bsd") !== -1) {
-        if (architecture !== undefined) {
-            if (architecture.indexOf("32-bit") !== -1) {
-                return "Linux/BSD 32-bit";
-            }
-            else if (architecture.indexOf("64-bit") !== -1) {
-                return "Linux/BSD 64-bit";
-            }
-            else {
-            	osHighlight();
-                return null;
-            }
-        }
+		if (architecture !== undefined) {
+			if (architecture.indexOf("32-bit") !== -1) {
+				return "Linux/BSD 32-bit";
+			} else if (architecture.indexOf("64-bit") !== -1) {
+				return "Linux/BSD 64-bit";
+			} else {
+				osHighlight();
+				return null;
+			}
+		}
 	} else {
 		osHighlight();
 		return null;
@@ -107,34 +105,44 @@ function setDownload(language, os) {
 	// var osxtbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx64_' + language + '.zip';
 	var lintbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_' + language + '.tar.xz';
 	var lintbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_' + language + '.tar.xz';
-	if (os.indexOf("Windows") !== -1) {
-		$("#download-url").val(os).attr("href", wintbb);
-	} else if (os.indexOf("Apple OS X") !== -1) {
-		$("#download-url").val(os).attr("href", osxtbb32);
-	}
-	// No 64-bit OS X version seems to exist
-	// else if (os.indexOf("Apple OS X") != -1 && architecture.indexOf("64-bit") != -1) {
-	// $("#download-url").val(os).attr("href", osxtbb64);
-	// }
-	else if (os.indexOf("Linux/BSD 32-bit") !== -1) {
-		$("#download-url").val(os).attr("href", lintbb32);
-	} else if (os.indexOf("Linux/BSD 64-bit") !== -1) {
-		$("#download-url").val(os).attr("href", lintbb64);
-	}
-	// Make the language code human-readable
-	var languageCodes = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
-	var ar_lang = String.fromCharCode(1575,1604,1593,1585,1576,1610,1577); //"&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;"
-	var fr_lang = String.fromCharCode(70,114,97,110,231,97,105,115); //"&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;"
-	var fa_lang = String.fromCharCode(1601,1575,1585,1587,1740); //&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;
-	var pt_lang = String.fromCharCode(80,111,114,116,117,103,117,234,115); //"&#x0050;&#x006f;&#x0072;&#x0074;&#x0075;&#x0067;&#x0075;&#x00ea;&#x0073;"
-	var ru_lang = String.fromCharCode(1056,1091,1089,1089,1082,1080,1081); //&#x0420;&#x0443;&#x0441;&#x0441;&#x043a;&#x0438;&#x0439;
-	var zh_lang = String.fromCharCode(31616,20307,23383); //"&#x7b80;&#x4f53;&#x5b57;"
-	var humanReadable = ["English", ar_lang, "Deutsch", "Español", fa_lang, fr_lang, "Italiano", "Nederlands", "Polish", pt_lang, ru_lang, "Vietnamese", zh_lang]
-	var humanReadableIndex = languageCodes.indexOf(language);
-	if (humanReadableIndex !== undefined) {
-		var humanReadableLanguage = humanReadable[humanReadableIndex];
-		var aboutDownload = "For " + os + " in " + humanReadableLanguage;
-		$("#about-download").text(aboutDownload);
+	if (os !== undefined) {
+		if (os.indexOf("Windows") !== -1) {
+			$("#download-url").val(os).attr("href", wintbb);
+		} else if (os.indexOf("Apple OS X") !== -1) {
+			$("#download-url").val(os).attr("href", osxtbb32);
+		}
+		// No 64-bit OS X version seems to exist
+		// else if (os.indexOf("Apple OS X") != -1 && architecture.indexOf("64-bit") != -1) {
+		// $("#download-url").val(os).attr("href", osxtbb64);
+		// }
+		else if (os.indexOf("Linux/BSD 32-bit") !== -1) {
+			$("#download-url").val(os).attr("href", lintbb32);
+		} else if (os.indexOf("Linux/BSD 64-bit") !== -1) {
+			$("#download-url").val(os).attr("href", lintbb64);
+		}
+		if (language !== undefined) {
+			// Make the language code human-readable
+			var languageCodes = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
+			var ar_lang = String.fromCharCode(1575, 1604, 1593, 1585, 1576, 1610, 1577);
+			//"&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;"
+			var fr_lang = String.fromCharCode(70, 114, 97, 110, 231, 97, 105, 115);
+			//"&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;"
+			var fa_lang = String.fromCharCode(1601, 1575, 1585, 1587, 1740);
+			//&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;
+			var pt_lang = String.fromCharCode(80, 111, 114, 116, 117, 103, 117, 234, 115);
+			//"&#x0050;&#x006f;&#x0072;&#x0074;&#x0075;&#x0067;&#x0075;&#x00ea;&#x0073;"
+			var ru_lang = String.fromCharCode(1056, 1091, 1089, 1089, 1082, 1080, 1081);
+			//&#x0420;&#x0443;&#x0441;&#x0441;&#x043a;&#x0438;&#x0439;
+			var zh_lang = String.fromCharCode(31616, 20307, 23383);
+			//"&#x7b80;&#x4f53;&#x5b57;"
+			var humanReadable = ["English", ar_lang, "Deutsch", "Español", fa_lang, fr_lang, "Italiano", "Nederlands", "Polish", pt_lang, ru_lang, "Vietnamese", zh_lang]
+			var humanReadableIndex = languageCodes.indexOf(language);
+			if (humanReadableIndex !== undefined) {
+				var humanReadableLanguage = humanReadable[humanReadableIndex];
+				var aboutDownload = "For " + os + " in " + humanReadableLanguage;
+				$("#about-download").text(aboutDownload);
+			}
+		}
 	}
 }
 
@@ -143,7 +151,7 @@ function onLanguageChange() {
 	templang = language;
 	var os = tempos;
 	setDownload(language, os);
-	if(langHighlight == 1){
+	if (langHighlight == 1) {
 		$("lang_selector").removeClass("warning");
 		langHighlight = 0;
 	}
@@ -154,18 +162,18 @@ function onOSChange() {
 	var os = $("select[name=os]").val();
 	tempos = os;
 	setDownload(language, os);
-	if(osHighlight == 1){
+	if (osHighlight == 1) {
 		$("#os_selector").removeClass("warning");
 		osHighlight = 0;
 	}
 }
 
-function osHighlight(){
+function osHighlight() {
 	$("#os_selector").addClass("warning");
 	osHighlight = 1;
 }
 
-function langHighlight(){
+function langHighlight() {
 	$("lang_selector").addClass("warning");
 	langHighlight = 1;
 }
