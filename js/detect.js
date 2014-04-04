@@ -123,7 +123,8 @@ function setDownload(language, os) {
 	}
 	// Make the language code human-readable
 	var languageCodes = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
-	var humanReadable = ["English", "&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;", "Deutsch", "Español", "&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;", "&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;", "Italiano", "Nederlands", "Polish", "&#x0050;&#x006f;&#x0072;&#x0074;&#x0075;&#x0067;&#x0075;&#x00ea;&#x0073;", "&#x0420;&#x0443;&#x0441;&#x0441;&#x043a;&#x0438;&#x0439;", "Vietnamese", "&#x7b80;&#x4f53;&#x5b57;"]
+	var arabic = String.fromCharCode(1575,1604,1593,1585,1576,1610,1577); //"&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;"
+	var humanReadable = ["English", arabic, "Deutsch", "Español", "&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;", "&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;", "Italiano", "Nederlands", "Polish", "&#x0050;&#x006f;&#x0072;&#x0074;&#x0075;&#x0067;&#x0075;&#x00ea;&#x0073;", "&#x0420;&#x0443;&#x0441;&#x0441;&#x043a;&#x0438;&#x0439;", "Vietnamese", "&#x7b80;&#x4f53;&#x5b57;"]
 	var humanReadableIndex = languageCodes.indexOf(language);
 	if (humanReadableIndex !== undefined) {
 		var humanReadableLanguage = humanReadable[humanReadableIndex];
