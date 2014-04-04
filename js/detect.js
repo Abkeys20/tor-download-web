@@ -4,6 +4,8 @@ $(document).ready(function() {
 });
 var templang;
 var tempos;
+var langHighlight;
+var osHighlight;
 function preSelect() {
 	var language = detectLanguage();
 	templang = language;
@@ -32,6 +34,7 @@ function detectLanguage() {
 			return returnWithArray[i];
 		}
 	}
+	langHighlight();
 	return null;
 }
 
@@ -54,10 +57,12 @@ function detectOS() {
                 return "Linux/BSD 64-bit";
             }
             else {
+            	osHighlight();
                 return null;
             }
         }
 	} else {
+		osHighlight();
 		return null;
 	}
 }
@@ -89,6 +94,7 @@ function detectArchitecture() {
 			return "64-bit";
 		}
 	} else {
+		osHighlight()
 		return null;
 	}
 }
@@ -131,6 +137,10 @@ function onLanguageChange() {
 	templang = language;
 	var os = tempos;
 	setDownload(language, os);
+	if(langHighlight == 1){
+		$("lang_selector").removeClass("warning");
+		langHighlight = 0;
+	}
 }
 
 function onOSChange() {
@@ -138,4 +148,18 @@ function onOSChange() {
 	var os = $("select[name=os]").val();
 	tempos = os;
 	setDownload(language, os);
+	if(osHighlight == 1){
+		$("#os_selector").removeClass("warning");
+		osHighlight = 0;
+	}
+}
+
+function osHighlight(){
+	$("#os_selector").addClass("warning");
+	osHighlight = 1;
+}
+
+function langHighlight(){
+	$("lang_selector").addClass("warning");
+	langHighlight = 1;
 }
