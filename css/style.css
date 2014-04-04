@@ -221,6 +221,14 @@ h2 {
   width: 100%;
   font-size: 14px; }
 
+.download-text {
+  color: #eee;
+  text-decoration: none;
+  width: 100%;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px; }
+
 .center-text {
   text-align: center; }
 

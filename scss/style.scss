@@ -153,6 +153,14 @@ h2 {
     font-size: 14px;
   }
 }
+.download-text {
+  color: #eee;
+  text-decoration: none;
+  width: 100%;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+}
 .about-beta {
   @extend .about-author;
 }
