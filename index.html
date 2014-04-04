@@ -20,98 +20,98 @@
 	</head>
 	<body>
 		<div id="javascript_on_wrapper">
-		<section class="container">
-			<section class="header">
-				<img src="images/tor.png">
-				<p>
-					&nbsp;
-				</p>
-				<h1>Download the Tor Browser Bundle</h1>
-				<p>
-					&nbsp;
-				</p>
-			</section>
-			<section class="download">
-				<p class="download-link">
-					<!--TODO: Replace placeholder download link-->
-					<a href="https://www.torproject.org/download/download.html.en" target="_parent" id="download-url">Download</a>
-				<p id="about-download">
-					Please select an operating system and a language
-				</p>
-				</p>
-			</section>
+			<section class="container">
+				<section class="header">
+					<img src="images/tor.png">
+					<p>
+						&nbsp;
+					</p>
+					<h1>Download the Tor Browser Bundle</h1>
+					<p>
+						&nbsp;
+					</p>
+				</section>
+				<section class="download">
+					<p class="download-link">
+						<!--TODO: Replace placeholder download link-->
+						<a href="https://www.torproject.org/download/download.html.en" target="_parent" id="download-url">Download</a>
+					<p id="about-download">
+						Please select an operating system and a language
+					</p>
+					</p>
+				</section>
 
-			<section class="custom-download">
-				<p>
-					Looking for something else? Select other options:
-				</p>
-				<br>
-				<div class="dropdown">
-					<select name="language" class="dropdown-select" onchange="onLanguageChange()">
-						<optgroup label="Language">
-							<option value="en-US">English</option>
-							<option value="ar">&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;</option>
-							<option value="de">Deutsch</option>
-							<option value="es-ES">&#x0045;&#x0073;&#x0070;&#x0061;&#x00f1;&#x006f;&#x006c;</option>
-							<option value="fa">&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;</option>
-							<option value="fr">&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;</option>
-							<option value="it">Italiano</option>
-							<option value="nl">Nederlands</option>
-							<option value="pl">Polish</option>
-							<option value="pt-PT">&#x0050;&#x006f;&#x0072;&#x0074;&#x0075;&#x0067;&#x0075;&#x00ea;&#x0073;</option>
-							<option value="ru">&#x0420;&#x0443;&#x0441;&#x0441;&#x043a;&#x0438;&#x0439;</option>
-							<option value="vi">Vietnamese</option>
-							<option value="zh-CN">&#x7b80;&#x4f53;&#x5b57;</option>
-						</optgroup>
-					</select>
-				</div>
-				<br>
-				<div id="safarifix"></div>
-				<div class="dropdown">
-					<select name="os" class="dropdown-select" onchange="onOSChange()">
-						<optgroup label="Operating System">
-							<option value="Windows">Microsoft Windows</option>
-							<option value="Apple OS X">Apple OS X</option>
-							<option value="Linux/BSD 32-bit">Linux/BSD 32-bit</option>
-							<option value="Linux/BSD 64-bit">Linux/BSD 64-bit</option>
-						</optgroup>
-					</select>
-				</div>
-				<br>
-			</section>
+				<section class="custom-download">
+					<p>
+						Looking for something else? Select other options:
+					</p>
+					<br>
+					<div class="dropdown">
+						<select name="language" class="dropdown-select" onchange="onLanguageChange()">
+							<optgroup label="Language">
+								<option value="en-US">English</option>
+								<option value="ar">&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;</option>
+								<option value="de">Deutsch</option>
+								<option value="es-ES">&#x0045;&#x0073;&#x0070;&#x0061;&#x00f1;&#x006f;&#x006c;</option>
+								<option value="fa">&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;</option>
+								<option value="fr">&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;</option>
+								<option value="it">Italiano</option>
+								<option value="nl">Nederlands</option>
+								<option value="pl">Polish</option>
+								<option value="pt-PT">&#x0050;&#x006f;&#x0072;&#x0074;&#x0075;&#x0067;&#x0075;&#x00ea;&#x0073;</option>
+								<option value="ru">&#x0420;&#x0443;&#x0441;&#x0441;&#x043a;&#x0438;&#x0439;</option>
+								<option value="vi">Vietnamese</option>
+								<option value="zh-CN">&#x7b80;&#x4f53;&#x5b57;</option>
+							</optgroup>
+						</select>
+					</div>
+					<br>
+					<div id="safarifix"></div>
+					<div class="dropdown">
+						<select name="os" class="dropdown-select" onchange="onOSChange()">
+							<optgroup label="Operating System">
+								<option value="Windows">Microsoft Windows</option>
+								<option value="Apple OS X">Apple OS X</option>
+								<option value="Linux/BSD 32-bit">Linux/BSD 32-bit</option>
+								<option value="Linux/BSD 64-bit">Linux/BSD 64-bit</option>
+							</optgroup>
+						</select>
+					</div>
+					<br>
+				</section>
 
-			<section class="about">
-				<!--TODO: Fix localization-->
-				<p class="about-links">
-					<a href="https://www.torproject.org/docs/verifying-signatures.html.en" target="_parent">Verifying Signatures</a>
-					<a href="https://www.torproject.org/donate/donate.html.en" target="_parent">Donate</a>
-				</p>
-				<p class="about-beta">
-					<a href="https://www.torproject.org/projects/torbrowser.html.en#downloads-beta" target="_blank">Want to test a beta Tor Browser?</a>
-					<br>
-				</p>
-				<p class="about-author">
-					&copy; 2014 <a href="" target="_blank">TBD</a> - <a href="https://github.com/wpapper/tor-download-web/blob/master/LICENSE" target="_blank">MIT License</a>
-					<br>
-				</p>
+				<section class="about">
+					<!--TODO: Fix localization-->
+					<p class="about-links">
+						<a href="https://www.torproject.org/docs/verifying-signatures.html.en" target="_parent">Verifying Signatures</a>
+						<a href="https://www.torproject.org/donate/donate.html.en" target="_parent">Donate</a>
+					</p>
+					<p class="about-beta">
+						<a href="https://www.torproject.org/projects/torbrowser.html.en#downloads-beta" target="_blank">Want to test a beta Tor Browser?</a>
+						<br>
+					</p>
+					<p class="about-author">
+						&copy; 2014 <a href="" target="_blank">TBD</a> - <a href="https://github.com/wpapper/tor-download-web/blob/master/LICENSE" target="_blank">MIT License</a>
+						<br>
+					</p>
+				</section>
 			</section>
-		</section>
 		</div>
 		<div id="javascript_off_wrapper">
-		<section class="container">
-			<section class="header">
-				<img src="images/tor.png">
-				<p>
-					&nbsp;
-				</p>
-				<h1>Download the Tor Browser Bundle</h1>
-				<p>
-					&nbsp;
-				</p>
-			</section>
-			<section class="download">
-				<p class="download-link">
-					<u class="download-text">Download for Windows</u>
+			<section class="container">
+				<section class="header">
+					<img src="images/tor.png">
+					<p>
+						&nbsp;
+					</p>
+					<h1>Download the Tor Browser Bundle</h1>
+					<p>
+						&nbsp;
+					</p>
+				</section>
+				<section class="download">
+					<p class="download-link">
+						<u class="download-text">Download for Windows</u>
 					<p id="about-download">
 						<a href="https://torproject.org/dist/torbrowser/3.5.3/torbrowser-install-3.5.3_en-US.exe">English</a><a href="https://torproject.org/dist/torbrowser/3.5.3/torbrowser-install-3.5.3_ar.exe">&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;</a><a href="https://torproject.org/dist/torbrowser/3.5.3/torbrowser-install-3.5.3_de.exe">Deutsch</a><a href="https://torproject.org/dist/torbrowser/3.5.3/torbrowser-install-3.5.3_es-ES.exe">&#x0045;&#x0073;&#x0070;&#x0061;&#x00f1;&#x006f;&#x006c;</a><a href="https://torproject.org/dist/torbrowser/3.5.3/torbrowser-install-3.5.3_fa.exe">&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;</a><a href="https://torproject.org/dist/torbrowser/3.5.3/torbrowser-install-3.5.3_fr.exe">&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;</a><a href="https://torproject.org/dist/torbrowser/3.5.3/torbrowser-install-3.5.3_it.exe">Italiano</a>
 					</p>
@@ -121,11 +121,11 @@
 					<p id="about-download">
 						<a href="https://torproject.org/dist/torbrowser/3.5.3/torbrowser-install-3.5.3_zh-CN.exe">&#x7b80;&#x4f53;&#x5b57;</a>
 					</p>
-				</p>
-			</section>
-			<section class="download">
-				<p class="download-text">
-					<u class="download-text">Download for Mac OS X</u>
+					</p>
+				</section>
+				<section class="download">
+					<p class="download-text">
+						<u class="download-text">Download for Mac OS X</u>
 					<p id="about-download">
 						<a href="https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx32_en-US.zip">English</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx32_ar.zip">&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx32_de.zip">Deutsch</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx32_es-ES.zip">&#x0045;&#x0073;&#x0070;&#x0061;&#x00f1;&#x006f;&#x006c;</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx32_fa.zip">&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx32_fr.zip">&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx32_it.zip">Italiano</a>
 					</p>
@@ -135,11 +135,11 @@
 					<p id="about-download">
 						<a href="https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx32_zh-CN.zip">&#x7b80;&#x4f53;&#x5b57;</a>
 					</p>
-				</p>
-			</section>
-			<section class="download">
-				<p class="download-link">
-					<u class="download-text">Download for Linux/BSD 32 Bit</u>
+					</p>
+				</section>
+				<section class="download">
+					<p class="download-link">
+						<u class="download-text">Download for Linux/BSD 32 Bit</u>
 					<p id="about-download">
 						<a href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_en-US.tar.xz">English</a><a  href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_ar.tar.xz">&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;</a><a  href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_de.tar.xz">Deutsch</a><a  href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_es-ES.tar.xz">&#x0045;&#x0073;&#x0070;&#x0061;&#x00f1;&#x006f;&#x006c;</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_fa.tar.xz">&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_fr.tar.xz">&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_it.tar.xz">Italiano</a>
 					</p>
@@ -149,11 +149,11 @@
 					<p id="about-download">
 						<a href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_zh-CN.tar.xz">&#x7b80;&#x4f53;&#x5b57;</a>
 					</p>
-				</p>
-			</section>
-			<section class="download">
-				<p class="download-link">
-					<u class="download-text">Download for Linux/BSD 64 Bit</u>
+					</p>
+				</section>
+				<section class="download">
+					<p class="download-link">
+						<u class="download-text">Download for Linux/BSD 64 Bit</u>
 					<p id="about-download">
 						<a href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_en-US.tar.xz">English</a><a  href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_ar.tar.xz">&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;</a><a  href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_de.tar.xz">Deutsch</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_es-ES.tar.xz">&#x0045;&#x0073;&#x0070;&#x0061;&#x00f1;&#x006f;&#x006c;</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_fa.tar.xz">&#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_fr.tar.xz">&#x0046;&#x0072;&#x0061;&#x006e;&#x00e7;&#x0061;&#x0069;&#x0073;</a><a href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_it.tar.xz">Italiano</a>
 					</p>
@@ -163,24 +163,24 @@
 					<p id="about-download">
 						<a href="https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_zh-CN.tar.xz">&#x7b80;&#x4f53;&#x5b57;</a>
 					</p>
-				</p>
+					</p>
+				</section>
+				<section class="about">
+					<!--TODO: Fix localization-->
+					<p class="about-links">
+						<a href="https://www.torproject.org/docs/verifying-signatures.html.en" target="_parent">Verifying Signatures</a>
+						<a href="https://www.torproject.org/donate/donate.html.en" target="_parent">Donate</a>
+					</p>
+					<p class="about-beta">
+						<a href="https://www.torproject.org/projects/torbrowser.html.en#downloads-beta" target="_blank">Want to test a beta Tor Browser?</a>
+						<br>
+					</p>
+					<p class="about-author">
+						&copy; 2014 <a href="" target="_blank">TBD</a> - <a href="https://github.com/wpapper/tor-download-web/blob/master/LICENSE" target="_blank">MIT License</a>
+						<br>
+					</p>
+				</section>
 			</section>
-			<section class="about">
-				<!--TODO: Fix localization-->
-				<p class="about-links">
-					<a href="https://www.torproject.org/docs/verifying-signatures.html.en" target="_parent">Verifying Signatures</a>
-					<a href="https://www.torproject.org/donate/donate.html.en" target="_parent">Donate</a>
-				</p>
-				<p class="about-beta">
-					<a href="https://www.torproject.org/projects/torbrowser.html.en#downloads-beta" target="_blank">Want to test a beta Tor Browser?</a>
-					<br>
-				</p>
-				<p class="about-author">
-					&copy; 2014 <a href="" target="_blank">TBD</a> - <a href="https://github.com/wpapper/tor-download-web/blob/master/LICENSE" target="_blank">MIT License</a>
-					<br>
-				</p>
-			</section>
-		</section>
 		</div>
 	</body>
 </html>
