@@ -67,6 +67,10 @@ function detectOS() {
 				return null;
 			}
 		}
+		else {
+            osHighlight();
+            return null;
+        }
 	} else {
 		osHighlight();
 		return null;
