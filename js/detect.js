@@ -174,6 +174,14 @@ function langHighlight() {
 
 function alertNoDownload() {
     if ($("#download-url").attr("href").indexOf(" ") === 0) {
-        alert("Please select a value for the red drop-down");
+        $("#about-download").addClass("about-download-warning");
+        sleep(1000, alertNoDownload);
+        $("#about-download").removeClass("about-download-warning");
     }
+    
+function sleep(millis, callback) {
+    setTimeout(function()
+            { callback(); }
+    , millis);
+}
 }
