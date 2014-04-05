@@ -174,6 +174,7 @@ function langHighlight() {
 
 function alertNoDownload() {
     if ($("#download-url").attr("href").indexOf("#") === 0) {
+    	$( "#download-button" ).effect( "shake" );
         addDownloadWarning();
         setTimeout(removeDownloadWarning, 1000);
     }
