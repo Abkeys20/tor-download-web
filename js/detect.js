@@ -178,10 +178,10 @@ function alertNoDownload() {
         sleep(1000, alertNoDownload);
         $("#about-download").removeClass("about-download-warning");
     }
+}
     
 function sleep(millis, callback) {
     setTimeout(function()
             { callback(); }
     , millis);
-}
 }
