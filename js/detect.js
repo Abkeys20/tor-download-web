@@ -53,7 +53,7 @@ function detectOS() {
 	var architecture = detectArchitecture();
 	// Check the architecture to ensure that Windows downloads are not being presented to an ARM Surface tablet, for example, or that Intel-based OS X downloads are not being presented to PowerPC Macs
 	if (platform.indexOf("win") !== -1 && architecture !== undefined && (architecture.indexOf("32-bit") !== -1 || architecture.indexOf("64-bit") !== -1)) {
-		return "Windows";
+		return "Microsoft Windows";
 	} else if (platform.indexOf("mac") !== -1 && architecture !== undefined && (architecture.indexOf("32-bit") !== -1 || architecture.indexOf("64-bit") !== -1)) {
 		return "Apple OS X";
 	} else if (platform.indexOf("linux") !== -1 || platform.indexOf("x11") !== -1 || platform.indexOf("bsd") !== -1) {
@@ -108,7 +108,7 @@ function setDownload(language, os) {
 	var lintbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_' + language + '.tar.xz';
 	var lintbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_' + language + '.tar.xz';
 	if (os !== undefined && os !== null) {
-		if (os.indexOf("Windows") !== -1) {
+		if (os.indexOf("Microsoft Windows") !== -1) {
 			$("#download-url").val(os).attr("href", wintbb);
 		} else if (os.indexOf("Apple OS X") !== -1) {
 			$("#download-url").val(os).attr("href", osxtbb32);
