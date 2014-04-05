@@ -164,7 +164,7 @@ function onLanguageChange() {
 	var os = tempos;
 	setDownload(language, os);
 	if (langHighlightBool == 1) {
-		$("lang_selector").removeClass("warning");
+		$("lang_selector").removeClass("dropdown-warning");
 		langHighlightBool = 0;
 	}
 }
@@ -175,7 +175,7 @@ function onOSChange() {
 	tempos = os;
 	setDownload(language, os);
 	if (osHighlightBool == 1) {
-		$("#os_selector").removeClass("warning");
+		$("#os_selector").removeClass("dropdown-warning");
 		osHighlightBool = 0;
 	}
 }
