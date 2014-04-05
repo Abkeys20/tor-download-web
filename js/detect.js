@@ -4,20 +4,20 @@ $(document).ready(function() {
 });
 var templang;
 var tempos;
-var langHighlight;
-var osHighlight;
+var langHighlightBool;
+var osHighlightBool;
 function preSelect() {
+    $("select[name=language]").prop('selectedIndex', -1)
+    $("select[name=os]").prop('selectedIndex', -1)
 	var language = detectLanguage();
 	templang = language;
 	if (language !== null) {
 		$("select[name=language]").val(language).attr("selected", "selected");
-		//$("select[name=language]").selectmenu("refresh");
 	}
 	var os = detectOS();
 	tempos = os;
 	if (os !== null) {
 		$("select[name=os]").val(os).attr("selected", "selected");
-		//$("select[name=os]").selectmenu("refresh");
 	}
 	setDownload(language, os);
 }
@@ -45,7 +45,7 @@ function detectOS() {
 	var architecture = detectArchitecture();
 	// Check the architecture to ensure that Windows downloads are not being presented to an ARM Surface tablet, for example, or that Intel-based OS X downloads are not being presented to PowerPC Macs
 	if (platform.indexOf("win") !== -1 && architecture !== undefined && (architecture.indexOf("32-bit") !== -1 || architecture.indexOf("64-bit") !== -1)) {
-		return "Windows";
+		return "Microsoft Windows";
 	} else if (platform.indexOf("mac") !== -1 && architecture !== undefined && (architecture.indexOf("32-bit") !== -1 || architecture.indexOf("64-bit") !== -1)) {
 		return "Apple OS X";
 	} else if (platform.indexOf("linux") !== -1 || platform.indexOf("x11") !== -1 || platform.indexOf("bsd") !== -1) {
@@ -54,15 +54,12 @@ function detectOS() {
 				return "Linux/BSD 32-bit";
 			} else if (architecture.indexOf("64-bit") !== -1) {
 				return "Linux/BSD 64-bit";
-			} else {
-				osHighlight();
-				return null;
 			}
 		}
-	} else {
-		osHighlight();
-		return null;
 	}
+	// If nothing has been returned yet, then no OS has been detected
+	osHighlight();
+	return null;
 }
 
 function detectArchitecture() {
@@ -91,9 +88,6 @@ function detectArchitecture() {
 		} else if (cpuClass.indexOf("64") !== -1 || cpuClass.indexOf("intel") !== -1) {
 			return "64-bit";
 		}
-	} else {
-		osHighlight()
-		return null;
 	}
 }
 
@@ -105,8 +99,8 @@ function setDownload(language, os) {
 	// var osxtbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx64_' + language + '.zip';
 	var lintbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_' + language + '.tar.xz';
 	var lintbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_' + language + '.tar.xz';
-	if (os !== undefined) {
-		if (os.indexOf("Windows") !== -1) {
+	if (os !== undefined && os !== null) {
+		if (os.indexOf("Microsoft Windows") !== -1) {
 			$("#download-url").val(os).attr("href", wintbb);
 		} else if (os.indexOf("Apple OS X") !== -1) {
 			$("#download-url").val(os).attr("href", osxtbb32);
@@ -120,7 +114,7 @@ function setDownload(language, os) {
 		} else if (os.indexOf("Linux/BSD 64-bit") !== -1) {
 			$("#download-url").val(os).attr("href", lintbb64);
 		}
-		if (language !== undefined) {
+		if (language !== undefined && language !== null) {
 			// Make the language code human-readable
 			var languageCodes = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
 			var ar_lang = String.fromCharCode(1575, 1604, 1593, 1585, 1576, 1610, 1577);
@@ -151,9 +145,9 @@ function onLanguageChange() {
 	templang = language;
 	var os = tempos;
 	setDownload(language, os);
-	if (langHighlight == 1) {
-		$("lang_selector").removeClass("warning");
-		langHighlight = 0;
+	if (langHighlightBool === true) {
+		$("lang_selector").removeClass("dropdown-warning");
+		langHighlightBool = false;
 	}
 }
 
@@ -162,18 +156,24 @@ function onOSChange() {
 	var os = $("select[name=os]").val();
 	tempos = os;
 	setDownload(language, os);
-	if (osHighlight == 1) {
-		$("#os_selector").removeClass("warning");
-		osHighlight = 0;
+	if (osHighlightBool === true) {
+		$("#os_selector").removeClass("dropdown-warning");
+		osHighlightBool = false;
 	}
 }
 
 function osHighlight() {
-	$("#os_selector").addClass("warning");
-	osHighlight = 1;
+	$("#os_selector").addClass("dropdown-warning");
+	osHighlightBool = true;
 }
 
 function langHighlight() {
-	$("lang_selector").addClass("warning");
-	langHighlight = 1;
+	$("lang_selector").addClass("dropdown-warning");
+	langHighlightBool = true;
+}
+
+function alertNoDownload() {
+    if ($("#download-url").attr("href").indexOf(" ") === 0) {
+        alert("Please select a value from the drop-down");
+    }
 }
