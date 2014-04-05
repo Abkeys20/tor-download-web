@@ -173,7 +173,8 @@ function langHighlight() {
 }
 
 function alertNoDownload() {
-    if ($("#download-url").attr("href").indexOf(" ") === 0) {
+    var href = $("#download-url").attr("href");
+    if (typeof href !== "undefined" && href !== false) {
         addDownloadWarning()
         setTimeout(removeDownloadWarning, 3000)
     }
