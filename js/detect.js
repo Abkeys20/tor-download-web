@@ -4,8 +4,8 @@ $(document).ready(function() {
 });
 var templang;
 var tempos;
-var langHighlight;
-var osHighlight;
+var langHighlightBool;
+var osHighlightBool;
 function preSelect() {
 	var language = detectLanguage();
 	templang = language;
@@ -163,9 +163,9 @@ function onLanguageChange() {
 	templang = language;
 	var os = tempos;
 	setDownload(language, os);
-	if (langHighlight == 1) {
+	if (langHighlightBool == 1) {
 		$("lang_selector").removeClass("warning");
-		langHighlight = 0;
+		langHighlightBool = 0;
 	}
 }
 
@@ -174,18 +174,18 @@ function onOSChange() {
 	var os = $("select[name=os]").val();
 	tempos = os;
 	setDownload(language, os);
-	if (osHighlight == 1) {
+	if (osHighlightBool == 1) {
 		$("#os_selector").removeClass("warning");
-		osHighlight = 0;
+		osHighlightBool = 0;
 	}
 }
 
 function osHighlight() {
 	$("#os_selector").addClass("dropdown-warning");
-	osHighlight = 1;
+	osHighlightBool = 1;
 }
 
 function langHighlight() {
 	$("lang_selector").addClass("dropdown-warning");
-	langHighlight = 1;
+	langHighlightBool = 1;
 }
