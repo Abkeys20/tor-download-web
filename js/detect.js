@@ -62,19 +62,12 @@ function detectOS() {
 				return "Linux/BSD 32-bit";
 			} else if (architecture.indexOf("64-bit") !== -1) {
 				return "Linux/BSD 64-bit";
-			} else {
-				osHighlight();
-				return null;
 			}
 		}
-		else {
-            osHighlight();
-            return null;
-        }
-	} else {
-		osHighlight();
-		return null;
 	}
+	// If nothing has been returned yet, then no OS has been detected
+	osHighlight();
+    return null;
 }
 
 function detectArchitecture() {
