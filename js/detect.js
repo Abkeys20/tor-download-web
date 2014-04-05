@@ -174,14 +174,15 @@ function langHighlight() {
 
 function alertNoDownload() {
     if ($("#download-url").attr("href").indexOf(" ") === 0) {
-        $("#about-download").addClass("about-download-warning");
-        sleep(1000, alertNoDownload);
-        $("#about-download").removeClass("about-download-warning");
+        addDownloadWarning()
+        setTimeout(removeDownloadWarning, 10000)
     }
 }
-    
-function sleep(millis, callback) {
-    setTimeout(function()
-            { callback(); }
-    , millis);
+
+function addDownloadWarning() {
+    $("#about-download").addClass("about-download-warning");
+}
+
+function removeDownloadWarning() {
+    $("#about-download").removeClass("about-download-warning");
 }
