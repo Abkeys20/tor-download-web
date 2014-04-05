@@ -100,11 +100,11 @@ body {
   margin: 50px auto;
   width: 500px;
   text-align: center; }
-  .container > .dropdown {
+  .container > .dropdown, .container > .dropdown-warning {
     margin: 0 20px;
     vertical-align: top; }
 
-.dropdown {
+.dropdown, .dropdown-warning {
   display: inline-block;
   position: relative;
   overflow: hidden;
@@ -120,7 +120,7 @@ body {
   background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08); }
-  .dropdown:before, .dropdown:after {
+  .dropdown:before, .dropdown-warning:before, .dropdown:after, .dropdown-warning:after {
     content: '';
     position: absolute;
     z-index: 2;
@@ -131,10 +131,10 @@ body {
     border: 4px dashed;
     border-color: #888 transparent;
     pointer-events: none; }
-  .dropdown:before {
+  .dropdown:before, .dropdown-warning:before {
     border-bottom-style: solid;
     border-top: none; }
-  .dropdown:after {
+  .dropdown:after, .dropdown-warning:after {
     margin-top: 7px;
     border-top-style: solid;
     border-bottom: none; }
@@ -172,7 +172,7 @@ body {
     cursor: pointer; }
 
 /* Fix for IE 8 putting the arrows behind the select element. */
-.lt-ie9 .dropdown {
+.lt-ie9 .dropdown, .lt-ie9 .dropdown-warning {
   z-index: 1; }
 .lt-ie9 .dropdown-select {
   z-index: -1; }
@@ -228,6 +228,9 @@ h2 {
   font-size: 14px;
   height: 30px;
   line-height: 30px; }
+
+.dropdown-warning {
+  border-color: red; }
 
 .center-text {
   text-align: center; }
