@@ -1,1 +1,6 @@
+# Ignore Sass cache files:
 .sass-cache
+
+# Ignore files for the Zed editor:
+.zedstate
+tags
