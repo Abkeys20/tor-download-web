@@ -13,11 +13,19 @@ function preSelect() {
 		$("select[name=language]").val(language).attr("selected", "selected");
 		//$("select[name=language]").selectmenu("refresh");
 	}
+	else {
+	    // Add dropdown-warning if there is no laguage preselected
+	    langHighlight();
+	}
 	var os = detectOS();
 	tempos = os;
 	if (os !== null) {
 		$("select[name=os]").val(os).attr("selected", "selected");
 		//$("select[name=os]").selectmenu("refresh");
+	}
+	else {
+	    // Add dropdown-warning if there is no OS preselected
+	    osHighlight();
 	}
 	setDownload(language, os);
 }
@@ -169,11 +177,11 @@ function onOSChange() {
 }
 
 function osHighlight() {
-	$("#os_selector").addClass("warning");
+	$("#os_selector").addClass("dropdown-warning");
 	osHighlight = 1;
 }
 
 function langHighlight() {
-	$("lang_selector").addClass("warning");
+	$("lang_selector").addClass("dropdown-warning");
 	langHighlight = 1;
 }
