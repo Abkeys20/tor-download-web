@@ -153,9 +153,9 @@ function onLanguageChange() {
 	templang = language;
 	var os = tempos;
 	setDownload(language, os);
-	if (langHighlightBool == 1) {
+	if (langHighlightBool === true) {
 		$("lang_selector").removeClass("dropdown-warning");
-		langHighlightBool = 0;
+		langHighlightBool = false;
 	}
 }
 
@@ -164,18 +164,18 @@ function onOSChange() {
 	var os = $("select[name=os]").val();
 	tempos = os;
 	setDownload(language, os);
-	if (osHighlightBool == 1) {
+	if (osHighlightBool === true) {
 		$("#os_selector").removeClass("dropdown-warning");
-		osHighlightBool = 0;
+		osHighlightBool = false;
 	}
 }
 
 function osHighlight() {
 	$("#os_selector").addClass("dropdown-warning");
-	osHighlightBool = 1;
+	osHighlightBool = true;
 }
 
 function langHighlight() {
 	$("lang_selector").addClass("dropdown-warning");
-	langHighlightBool = 1;
+	langHighlightBool = true;
 }
