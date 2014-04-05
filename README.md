@@ -32,3 +32,5 @@ What is the license?
 This project is licensed under the MIT license. See the LICENSE file for more information.
 
 Some code is modified from CSSFlow, which is also under the MIT license. See the CSSFlow LICENSE file for more information.
+
+This project also uses CSS Browser Selector by Rafael Lima, which is under a Creative Commons Attribution 2.5 Generic License. Go to http://creativecommons.org/licenses/by/2.5/ for more information and visit the project at http://rafael.adm.br/css_browser_selector/.
