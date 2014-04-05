@@ -96,9 +96,6 @@ function detectArchitecture() {
 		} else if (cpuClass.indexOf("64") !== -1 || cpuClass.indexOf("intel") !== -1) {
 			return "64-bit";
 		}
-	} else {
-		osHighlight()
-		return null;
 	}
 }
 
