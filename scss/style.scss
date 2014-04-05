@@ -166,7 +166,7 @@ h2 {
 }
 .about-download-warning {
   @extend #about-download;
-  color: white;
+  color: red;
 }
 .dropdown-warning {
   @extend .dropdown;
