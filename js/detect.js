@@ -174,8 +174,8 @@ function langHighlight() {
 
 function alertNoDownload() {
     if ($("#download-url").attr("href").indexOf("#") === 0) {
-        addDownloadWarning()
-        setTimeout(removeDownloadWarning, 1000)
+        addDownloadWarning();
+        setTimeout(removeDownloadWarning, 1000);
     }
 }
 
