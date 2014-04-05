@@ -174,6 +174,6 @@ function langHighlight() {
 
 function alertNoDownload() {
     if ($("#download-url").attr("href").indexOf(" ") === 0) {
-        alert("Please select a value from the drop-down");
+        alert("Please select a value for the red drop-down");
     }
 }
