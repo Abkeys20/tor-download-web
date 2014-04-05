@@ -171,3 +171,9 @@ function langHighlight() {
 	$("lang_selector").addClass("dropdown-warning");
 	langHighlightBool = true;
 }
+
+function alertNoDownload() {
+    if ($("#download-url").attr("href").indexOf(" ") === 0) {
+        alert("Please select a value from the drop-down");
+    }
+}
