@@ -230,7 +230,7 @@ h2 {
   line-height: 30px; }
 
 .about-download-warning {
-  color: white; }
+  color: red; }
 
 .dropdown-warning {
   border-color: red; }
