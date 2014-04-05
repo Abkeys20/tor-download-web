@@ -78,9 +78,9 @@ table {
     line-height: 30px;
     font-size: 12px; }
 
-.about-author, .about-beta, #about-download {
+.about-author, .about-beta, #about-download, .about-download-warning {
   margin-top: 5px; }
-  .about-author > a, .about-beta > a, #about-download > a {
+  .about-author > a, .about-beta > a, #about-download > a, .about-download-warning > a {
     padding: 1px 3px;
     margin: 0 -1px; }
 
@@ -228,6 +228,9 @@ h2 {
   font-size: 14px;
   height: 30px;
   line-height: 30px; }
+
+.about-download-warning {
+  color: white; }
 
 .dropdown-warning {
   border-color: red; }

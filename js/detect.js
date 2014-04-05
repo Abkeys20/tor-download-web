@@ -173,7 +173,16 @@ function langHighlight() {
 }
 
 function alertNoDownload() {
-    if ($("#download-url").attr("href").indexOf(" ") === 0) {
-        alert("Please select a value from the drop-down");
+    if ($("#download-url").attr("href").indexOf("#") === 0) {
+        addDownloadWarning();
+        setTimeout(removeDownloadWarning, 1000);
     }
+}
+
+function addDownloadWarning() {
+    $("#about-download").addClass("about-download-warning");
+}
+
+function removeDownloadWarning() {
+    $("#about-download").removeClass("about-download-warning");
 }
