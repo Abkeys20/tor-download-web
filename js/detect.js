@@ -11,13 +11,11 @@ function preSelect() {
 	templang = language;
 	if (language !== null) {
 		$("select[name=language]").val(language).attr("selected", "selected");
-		//$("select[name=language]").selectmenu("refresh");
 	}
 	var os = detectOS();
 	tempos = os;
 	if (os !== null) {
 		$("select[name=os]").val(os).attr("selected", "selected");
-		//$("select[name=os]").selectmenu("refresh");
 	}
 	setDownload(language, os);
 }
