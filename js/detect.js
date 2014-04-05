@@ -7,6 +7,8 @@ var tempos;
 var langHighlightBool;
 var osHighlightBool;
 function preSelect() {
+    $("select[name=language]").prop('selectedIndex', -1)
+    $("select[name=os]").prop('selectedIndex', -1)
 	var language = detectLanguage();
 	templang = language;
 	if (language !== null) {
