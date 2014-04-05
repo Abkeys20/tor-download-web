@@ -59,7 +59,7 @@ function detectOS() {
 	}
 	// If nothing has been returned yet, then no OS has been detected
 	osHighlight();
-    return null;
+	return null;
 }
 
 function detectArchitecture() {
