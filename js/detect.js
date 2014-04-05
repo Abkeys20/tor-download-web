@@ -117,7 +117,7 @@ function setDownload(language, os) {
 	// var osxtbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx64_' + language + '.zip';
 	var lintbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_' + language + '.tar.xz';
 	var lintbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_' + language + '.tar.xz';
-	if (os !== undefined) {
+	if (os !== undefined && os !== null) {
 		if (os.indexOf("Windows") !== -1) {
 			$("#download-url").val(os).attr("href", wintbb);
 		} else if (os.indexOf("Apple OS X") !== -1) {
@@ -132,7 +132,7 @@ function setDownload(language, os) {
 		} else if (os.indexOf("Linux/BSD 64-bit") !== -1) {
 			$("#download-url").val(os).attr("href", lintbb64);
 		}
-		if (language !== undefined) {
+		if (language !== undefined && language !== null) {
 			// Make the language code human-readable
 			var languageCodes = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
 			var ar_lang = String.fromCharCode(1575, 1604, 1593, 1585, 1576, 1610, 1577);
