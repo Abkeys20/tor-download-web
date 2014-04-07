@@ -191,7 +191,7 @@ function removeDownloadWarning() {
 }
 function langchanger(language){
 			var languageCodes = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
-			var downloadTorText = ["Download Tor Browser", "ARABIC NEED TO CONVERT THE UNICODE", "Laden Sie die Tor-Browser", "Descargar Tor Browser", "PERSIAN NEED TO CONVERT THE UNICODE", "Télécharger le navigateur Tor", "Scaricare Tor Browser", "Nederlands", "Polish", "pt_lang", "ru_lang", "Vietnamese", "zh_lang"]
+			var downloadTorText = ["Download Tor Browser", "ARABIC NEED TO CONVERT THE UNICODE", "Laden Sie die Tor-Browser", "Descargar Tor Browser", "PERSIAN NEED TO CONVERT THE UNICODE", "Télécharger le navigateur Tor", "Scaricare Tor Browser", "Downloaden van de Tor Browser", "Pobierz Tor Browser", "Baixar o navegador Tor", "скачать обозревателя Tor", "Tải về trình duyệt Tor", "下载Tor浏览器"]
 			var humanReadableIndex = languageCodes.indexOf(language);
 			if (humanReadableIndex !== undefined) {
 				var humanReadableLanguage = downloadTorText[humanReadableIndex];
