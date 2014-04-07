@@ -196,5 +196,5 @@ function langchanger(){
 		en = "Looking for something else? Select other options:"
 		en = "About Tor"
 		en = "Donate"
-*/
+*/ 
 }
