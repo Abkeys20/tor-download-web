@@ -13,6 +13,7 @@ function preSelect() {
 	templang = language;
 	if (language !== null) {
 		$("select[name=language]").val(language).attr("selected", "selected");
+		//langchanger();
 	}
 	var os = detectOS();
 	tempos = os;
@@ -143,6 +144,7 @@ function setDownload(language, os) {
 function onLanguageChange() {
 	var language = $("select[name=language]").val();
 	templang = language;
+	//langchanger();
 	var os = tempos;
 	setDownload(language, os);
 	if (langHighlightBool === true) {
@@ -186,4 +188,13 @@ function addDownloadWarning() {
 
 function removeDownloadWarning() {
     $("#about-download").removeClass("about-download-warning");
+}
+function langchanger(){
+	//Function to localize all strings on page.... Will write after translations are gained...
+	/* en = "Download the Tor Browser", ar = تحميل متصفح Tor (&#1578;&#1581;&#1605;&#1610;&#1604;&#32;&#1605;&#1578;&#1589;&#1601;&#1581;&#32;&#84;&#111;&#114;), "de" = Laden Sie die Tor-Browser, "es" = Descargar Tor Browser, "fa" = مرورگر Tor دانلود کنید (&#1605;&#1585;&#1608;&#1585;&#1711;&#1585;&#32;&#84;&#111;&#114;&#32;&#1583;&#1575;&#1606;&#1604;&#1608;&#1583;&#32;&#1705;&#1606;&#1740;&#1583;), "fr" = Télécharger le navigateur Tor, "it" = scaricare Tor Browser, nl = "Downloaden van de Tor Browser", pl = Pobierz Tor Browser, pt = Baixar o navegador Tor, ru = скачать обозревателя Tor (&#1089;&#1082;&#1072;&#1095;&#1072;&#1090;&#1100;&#32;&#1086;&#1073;&#1086;&#1079;&#1088;&#1077;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103;&#32;&#84;&#111;&#114;), vi = tải về trình duyệt Tor (&#116;&#7843;&#105;&#32;&#118;&#7873;&#32;&#116;&#114;&#236;&#110;&#104;&#32;&#100;&#117;&#121;&#7879;&#116;&#32;&#84;&#111;&#114;) , zh = "下载Tor浏览器" (&#19979;&#36733;&#84;&#111;&#114;&#27983;&#35272;&#22120;)
+		en = "Download"
+		en = "Looking for something else? Select other options:"
+		en = "About Tor"
+		en = "Donate"
+/*
 }
