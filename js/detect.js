@@ -190,16 +190,55 @@ function removeDownloadWarning() {
     $("#about-download").removeClass("about-download-warning");
 }
 function langchanger(language){
+			//LanguageCodes
 			var languageCodes = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
-			var downloadTorText = ["Download Tor Browser", "ARABIC NEED TO CONVERT THE UNICODE", "Laden Sie die Tor-Browser", "Descargar Tor Browser", "PERSIAN NEED TO CONVERT THE UNICODE", "Télécharger le navigateur Tor", "Scaricare Tor Browser", "Downloaden van de Tor Browser", "Pobierz Tor Browser", "Baixar o navegador Tor", "скачать обозревателя Tor", "Tải về trình duyệt Tor", "下载Tor浏览器"]
+			//Tor Text Above Button...
+				var ar_hero = String.fromCharCode(1578,1581,1605,1610,1604,32,1605,1578,1589,1601,1581,32,84,111,114);
+				//&#1578;&#1581;&#1605;&#1610;&#1604;&#32;&#1605;&#1578;&#1589;&#1601;&#1581;&#32;&#84;&#111;&#114;
+				var fa_hero = String.fromCharCode(1605,1585,1608,1585,1711,1585,32,84,111,114,32,1583,1575,1606,1604,1608,1583,32,1705,1606,1740,1583);
+				//&#1605;&#1585;&#1608;&#1585;&#1711;&#1585;&#32;&#84;&#111;&#114;&#32;&#1583;&#1575;&#1606;&#1604;&#1608;&#1583;&#32;&#1705;&#1606;&#1740;&#1583;
+			var downloadTorText = ["Download Tor Browser", ar_hero, "Laden Sie die Tor-Browser", "Descargar Tor Browser", fa_hero, "Télécharger le navigateur Tor", "Scaricare Tor Browser", "Downloaden van de Tor Browser", "Pobierz Tor Browser", "Baixar o navegador Tor", "скачать обозревателя Tor", "Tải về trình duyệt Tor", "下载Tor浏览器"];
+			//Tor Download Button Text
+				var ar_download = String.fromCharCode(1578,1606,1586,1610,1604);
+				//&#1578;&#1606;&#1586;&#1610;&#1604;
+				var fa_download = String.fromCharCode(1583,1575,1606,1604,1608,1583);
+				//&#1583;&#1575;&#1606;&#1604;&#1608;&#1583;
+			var downloadButton = ["Download",ar_download,"Herunterladen","Descargar",fa_download,"Télécharger","Scaricare","Downloaden","ściąganie","Baixar","скачать","Tải về","下载"];
+			//"Looking for something else? Select other options:"
+				var ar_options = String.fromCharCode(1578,1581,1583,1610,1583,32,1582,1610,1575,1578,32,1571,1582,1585,1609,58);
+				//&#1578;&#1581;&#1583;&#1610;&#1583;&#32;&#1582;&#1610;&#1575;&#1585;&#1575;&#1578;&#32;&#1571;&#1582;&#1585;&#1609;&#58;
+				var fa_options = String.fromCharCode(1575,1606,1578,1582,1575,1576,32,1711,1586,1740,1606,1607,32,1607,1575,1740,32,1583,1740,1711,1585,58);
+				//&#1575;&#1606;&#1578;&#1582;&#1575;&#1576;&#32;&#1711;&#1586;&#1740;&#1606;&#1607;&#32;&#1607;&#1575;&#1740;&#32;&#1583;&#1740;&#1711;&#1585;&#58;
+			var otherOptions = ["Looking for something else? Select other options:",ar_options, "Wählen Sie weitere Optionen:","Seleccione otras opciones:",fa_options,"Sélectionnez d'autres options:","Selezionare altre opzioni:","Selecteer andere opties:","Wybierz inne opcje:","Selecione outras opções:","Выберите другие параметры:","Chọn các tùy chọn khác:","选择其他选项："];
+			//About Tor
+				var ar_about = String.fromCharCode(1581,1608,1604,32,84,111,114);
+				//&#1581;&#1608;&#1604; (84,111,114)
+				var fa_about = String.fromCharCode(1583,1585,32,1581,1583,1608,1583,32,84,111,114);
+				//&#1583;&#1585;&#32;&#1581;&#1583;&#1608;&#1583; (84,111,114)
+			var aboutText = ["About Tor",ar_about,"Über Tor","Acerca de Tor",fa_about,"À propos de Tor","A proposito di Tor","over Tor","o Tor","sobre o Tor","О Tor","Về Tor","关于Tor"];
+			//Donate
+			
+			//"Want to test a beta Tor Browser?"
+			
+			
+			//jQuery Switcher;
 			var humanReadableIndex = languageCodes.indexOf(language);
 			if (humanReadableIndex !== undefined) {
-				var humanReadableLanguage = downloadTorText[humanReadableIndex];
-				var aboutDownload = humanReadableLanguage;
-				$("#download-tor-hero").text(aboutDownload);
-			}
+				var torHero = downloadTorText[humanReadableIndex];
+				$("#download-tor-hero").text(torHero);
+				var torDownload = downloadButton[humanReadableIndex];
+				$("#download-url").text(torDownload);
+				var otherOpt = otherOptions[humanReadableIndex];
+				$("#otherOptions").text(otherOpt);
+				var aboutButton = aboutText[humanReadableIndex];
+				$("#aboutTor").text(aboutButton);
+				/*var donateText = donateBtn[humanReadableIndex];
+				$("#donateButton").text(donateText);
+				var betaText = betaBtn[humanReadableIndex];
+				$("#beta").text(betaText); */
+}
 	//Function to localize all strings on page.... Will write after translations are gained...
-	/* en = "Download the Tor Browser", ar = تحميل متصفح Tor (&#1578;&#1581;&#1605;&#1610;&#1604;&#32;&#1605;&#1578;&#1589;&#1601;&#1581;&#32;&#84;&#111;&#114;), "de" = Laden Sie die Tor-Browser, "es" = Descargar Tor Browser, "fa" = مرورگر Tor دانلود کنید (&#1605;&#1585;&#1608;&#1585;&#1711;&#1585;&#32;&#84;&#111;&#114;&#32;&#1583;&#1575;&#1606;&#1604;&#1608;&#1583;&#32;&#1705;&#1606;&#1740;&#1583;), "fr" = Télécharger le navigateur Tor, "it" = scaricare Tor Browser, nl = "Downloaden van de Tor Browser", pl = Pobierz Tor Browser, pt = Baixar o navegador Tor, ru = скачать обозревателя Tor (&#1089;&#1082;&#1072;&#1095;&#1072;&#1090;&#1100;&#32;&#1086;&#1073;&#1086;&#1079;&#1088;&#1077;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103;&#32;&#84;&#111;&#114;), vi = tải về trình duyệt Tor (&#116;&#7843;&#105;&#32;&#118;&#7873;&#32;&#116;&#114;&#236;&#110;&#104;&#32;&#100;&#117;&#121;&#7879;&#116;&#32;&#84;&#111;&#114;) , zh = "下载Tor浏览器" (&#19979;&#36733;&#84;&#111;&#114;&#27983;&#35272;&#22120;)
+	/* en = "Download the Tor Browser", ar = (&#1578;&#1581;&#1605;&#1610;&#1604;&#32;&#1605;&#1578;&#1589;&#1601;&#1581;&#32;&#84;&#111;&#114;), "de" = Laden Sie die Tor-Browser, "es" = Descargar Tor Browser, fa = (&#1605;&#1585;&#1608;&#1585;&#1711;&#1585;&#32;&#84;&#111;&#114;&#32;&#1583;&#1575;&#1606;&#1604;&#1608;&#1583;&#32;&#1705;&#1606;&#1740;&#1583;), "fr" = Télécharger le navigateur Tor, "it" = scaricare Tor Browser, nl = "Downloaden van de Tor Browser", pl = Pobierz Tor Browser, pt = Baixar o navegador Tor, ru = скачать обозревателя Tor (&#1089;&#1082;&#1072;&#1095;&#1072;&#1090;&#1100;&#32;&#1086;&#1073;&#1086;&#1079;&#1088;&#1077;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103;&#32;&#84;&#111;&#114;), vi = tải về trình duyệt Tor (&#116;&#7843;&#105;&#32;&#118;&#7873;&#32;&#116;&#114;&#236;&#110;&#104;&#32;&#100;&#117;&#121;&#7879;&#116;&#32;&#84;&#111;&#114;) , zh = "下载Tor浏览器" (&#19979;&#36733;&#84;&#111;&#114;&#27983;&#35272;&#22120;)
 		en = "Download", "ar" = (&#1578;&#1606;&#1586;&#1610;&#1604;), "de" = Herunterladen, "es-ES" = Descargar, "fa" = دانلود, "fr" = Télécharger, "it" = Scaricare, "nl" = Downloaden, "pl" = ściąganie, "pt-PT" = Baixar, "ru" = скачать, "vi" = Tải về, "zh-CN" = 下载
 		en = "Looking for something else? Select other options:"
 		en = "About Tor"
