@@ -178,6 +178,9 @@ h2 {
 #about-download {
   @extend .about-author;
 }
+#what-is {
+  @extend #about-download;
+}
 #download-details {
   font-size: 32px;
 }
