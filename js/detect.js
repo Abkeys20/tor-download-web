@@ -95,16 +95,22 @@ function detectArchitecture() {
 function setDownload(language, os) {
 	// Values taken from the source code of https://www.torproject.org/download/download.html.en
 	var wintbb = 'https://www.torproject.org/dist/torbrowser/3.5.4/torbrowser-install-3.5.4_' + language + '.exe';
+	var wintbbsig = 'https://www.torproject.org/dist/torbrowser/3.5.4/torbrowser-install-3.5.4_' + language + '.exe.asc';
 	var osxtbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.4/TorBrowserBundle-3.5.4-osx32_' + language + '.zip';
+	var osxtbb32sig = 'https://www.torproject.org/dist/torbrowser/3.5.4/TorBrowserBundle-3.5.4-osx32_' + language + '.zip.asc';
 	// Apparently there is no 64-bit OS X download, even though it's in the source of the Tor Project's "All Downloads" page:
 	// var osxtbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.4/TorBrowserBundle-3.5.4-osx64_' + language + '.zip';
 	var lintbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.4/tor-browser-linux32-3.5.4_' + language + '.tar.xz';
+	var lintbb32sig = 'https://www.torproject.org/dist/torbrowser/3.5.4/tor-browser-linux32-3.5.4_' + language + '.tar.xz.asc';
 	var lintbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.4/tor-browser-linux64-3.5.4_' + language + '.tar.xz';
+	var lintbb64sig = 'https://www.torproject.org/dist/torbrowser/3.5.4/tor-browser-linux64-3.5.4_' + language + '.tar.xz.asc';
 	if (os !== undefined && os !== null) {
 		if (os.indexOf("Microsoft Windows") !== -1) {
 			$("#download-url").val(os).attr("href", wintbb);
+			$("#sig-url").val(os).attr("href", wintbbsig);
 		} else if (os.indexOf("Apple OS X") !== -1) {
 			$("#download-url").val(os).attr("href", osxtbb32);
+			$("#sig-url").val(os).attr("href", osxtbb32sig);
 		}
 		// No 64-bit OS X version seems to exist
 		// else if (os.indexOf("Apple OS X") != -1 && architecture.indexOf("64-bit") != -1) {
@@ -112,8 +118,10 @@ function setDownload(language, os) {
 		// }
 		else if (os.indexOf("Linux/BSD 32-bit") !== -1) {
 			$("#download-url").val(os).attr("href", lintbb32);
+			$("#sig-url").val(os).attr("href", lintbb32sig);
 		} else if (os.indexOf("Linux/BSD 64-bit") !== -1) {
 			$("#download-url").val(os).attr("href", lintbb64);
+			$("#sig-url").val(os).attr("href", lintbb64sig);
 		}
 		if (language !== undefined && language !== null) {
 			// Make the language code human-readable
