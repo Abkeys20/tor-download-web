@@ -180,6 +180,10 @@ function alertNoDownload() {
         addDownloadWarning();
         setTimeout(removeDownloadWarning, 1000);
     }
+    else {
+        $('#javascript_on_wrapper').hide();
+        $('#thankyou_wrapper').show();
+    }
 }
 
 function addDownloadWarning() {
