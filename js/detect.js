@@ -94,12 +94,12 @@ function detectArchitecture() {
 
 function setDownload(language, os) {
 	// Values taken from the source code of https://www.torproject.org/download/download.html.en
-	var wintbb = 'https://www.torproject.org/dist/torbrowser/3.5.3/torbrowser-install-3.5.3_' + language + '.exe';
-	var osxtbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx32_' + language + '.zip';
+	var wintbb = 'https://www.torproject.org/dist/torbrowser/3.5.4/torbrowser-install-3.5.4_' + language + '.exe';
+	var osxtbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.4/TorBrowserBundle-3.5.4-osx32_' + language + '.zip';
 	// Apparently there is no 64-bit OS X download, even though it's in the source of the Tor Project's "All Downloads" page:
-	// var osxtbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.3/TorBrowserBundle-3.5.3-osx64_' + language + '.zip';
-	var lintbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux32-3.5.3_' + language + '.tar.xz';
-	var lintbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.3/tor-browser-linux64-3.5.3_' + language + '.tar.xz';
+	// var osxtbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.4/TorBrowserBundle-3.5.4-osx64_' + language + '.zip';
+	var lintbb32 = 'https://www.torproject.org/dist/torbrowser/3.5.4/tor-browser-linux32-3.5.4_' + language + '.tar.xz';
+	var lintbb64 = 'https://www.torproject.org/dist/torbrowser/3.5.4/tor-browser-linux64-3.5.4_' + language + '.tar.xz';
 	if (os !== undefined && os !== null) {
 		if (os.indexOf("Microsoft Windows") !== -1) {
 			$("#download-url").val(os).attr("href", wintbb);
