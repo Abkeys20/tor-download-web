@@ -252,6 +252,24 @@ function langchanger(language){
 				var fa_sig = String.fromCharCode(1576,1585,1585,1587,1740,32,1705,1583,1607,1575,1740,32,1605,1580,1608,1586);
 				//&#1576;&#1585;&#1585;&#1587;&#1740;&#32;&#1705;&#1583;&#1607;&#1575;&#1740;&#32;&#1605;&#1580;&#1608;&#1586;
 			var sigBtn = ["Verify Signatures", ar_sig, "Überprüfen Signaturen", "Verificar Firmas", fa_sig, "Authentifier les Signatures", "Verificare le Firme", "Handtekeningen Verifiëren", "Weryfikacji Podpisów", "Verificar Assinaturas", "проверки подписей", "Xác minh Chữ Ký", "验证签名"];
+			//"What is this?"
+				var ar_what = String.fromCharCode();
+				//&#1605;&#1575;&#32;&#1607;&#1584;&#1575;&#1567;
+				var fa_what = String.fromCharCode();
+				//&#1575;&#1740;&#1606;&#32;&#1670;&#1740;&#1587;&#1578;&#1567;
+			var whatBtn = ["What is this?",ar_what,"Was ist das?","¿Qué es esto?",fa_what,"Qu'est-ce que c'est?","Che cos'è questo?","Wat is dit?","Co to jest?","O que é isso?","Что это?","Đây là những gì?","这是什么？"]
+			//"Other Tor Services"
+				var ar_other = String.fromCharCode();
+				//
+				var fa_other = String.fromCharCode();
+				//
+			var otherBtn = ["Other Tor Services"]
+			//"Help Using Tor"
+				var ar_help = String.fromCharCode();
+				//
+				var fa_help = String.fromCharCode();
+				//
+			var helpBtn = ["Help Using Tor"]
 			//jQuery Switcher;
 			var humanReadableIndex = languageCodes.indexOf(language);
 			if (humanReadableIndex !== undefined) {
@@ -274,6 +292,8 @@ function langchanger(language){
 				$("#thanks").text(thankText);
 				var sigText = sigBtn[humanReadableIndex];
 				$("#sig-url").text(sigText);
+				var whatText = whatBtn[humanReadableIndex];
+				$("#what-btn").text(whatText);
 }
 	//Function to localize all strings on page.... Will write after translations are gained...
 	/* en = "Download the Tor Browser", ar = (&#1578;&#1581;&#1605;&#1610;&#1604;&#32;&#1605;&#1578;&#1589;&#1601;&#1581;&#32;&#84;&#111;&#114;), "de" = Laden Sie die Tor-Browser, "es" = Descargar Tor Browser, fa = (&#1605;&#1585;&#1608;&#1585;&#1711;&#1585;&#32;&#84;&#111;&#114;&#32;&#1583;&#1575;&#1606;&#1604;&#1608;&#1583;&#32;&#1705;&#1606;&#1740;&#1583;), "fr" = Télécharger le navigateur Tor, "it" = scaricare Tor Browser, nl = "Downloaden van de Tor Browser", pl = Pobierz Tor Browser, pt = Baixar o navegador Tor, ru = скачать обозревателя Tor (&#1089;&#1082;&#1072;&#1095;&#1072;&#1090;&#1100;&#32;&#1086;&#1073;&#1086;&#1079;&#1088;&#1077;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103;&#32;&#84;&#111;&#114;), vi = tải về trình duyệt Tor (&#116;&#7843;&#105;&#32;&#118;&#7873;&#32;&#116;&#114;&#236;&#110;&#104;&#32;&#100;&#117;&#121;&#7879;&#116;&#32;&#84;&#111;&#114;) , zh = "下载Tor浏览器" (&#19979;&#36733;&#84;&#111;&#114;&#27983;&#35272;&#22120;)
