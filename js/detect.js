@@ -92,6 +92,28 @@ function detectArchitecture() {
 	}
 }
 
+function setThankYou(language, os) {
+    var thankYouString = "?os=";
+    if (os !== undefined && os !== null) {
+        if (os.indexOf("Microsoft Windows") !== -1) {
+            thankYouString += "windows";
+        } else if (os.indexOf("Apple OS X") !== -1) {
+            thankYouString += "osx";
+        }
+        else if (os.indexOf("Linux/BSD 32-bit") !== -1) {
+            thankYouString += "linux32";
+        } else if (os.indexOf("Linux/BSD 64-bit") !== -1) {
+            thankYouString += "linux64";
+        }
+        if (language !== undefined && language !== null) {
+            // Separate the string and add the language code
+            thankYouString += "&lang=" + language;
+            }
+        }
+    }
+    $("#download-url").val(os).attr("href", "thankyou.html" + thankYouString);
+}
+
 function setDownload(language, os) {
 	// Values taken from the source code of https://www.torproject.org/download/download.html.en
 	var wintbb = 'https://www.torproject.org/dist/torbrowser/3.5.4/torbrowser-install-3.5.4_' + language + '.exe';
