@@ -110,7 +110,7 @@ function setThankYou(language, os) {
 		}
 	}
 	$("#download-url").val(os).attr("href", "thankyou.html" + thankYouString);
-	setAboutDownload(language, os);
+	setAboutDownload();
 }
 
 function setAboutDownload(language, os) {
@@ -171,7 +171,6 @@ function setDownload(language, os) {
 			$("#sig-url").val(os).attr("href", lintbb64sig);
 		}
 	}
-	setAboutDownload(language, os);
 }
 
 function onLanguageChange() {
