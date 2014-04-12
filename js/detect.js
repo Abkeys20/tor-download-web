@@ -7,8 +7,8 @@ var tempos;
 var langHighlightBool;
 var osHighlightBool;
 function preSelect() {
-    $("select[name=language]").prop('selectedIndex', -1)
-    $("select[name=os]").prop('selectedIndex', -1)
+	$("select[name=language]").prop('selectedIndex', -1)
+	$("select[name=os]").prop('selectedIndex', -1)
 	var language = detectLanguage();
 	templang = language;
 	if (language !== null) {
@@ -93,25 +93,23 @@ function detectArchitecture() {
 }
 
 function setThankYou(language, os) {
-    var thankYouString = "?os=";
-    if (os !== undefined && os !== null) {
-        if (os.indexOf("Microsoft Windows") !== -1) {
-            thankYouString += "windows";
-        } else if (os.indexOf("Apple OS X") !== -1) {
-            thankYouString += "osx";
-        }
-        else if (os.indexOf("Linux/BSD 32-bit") !== -1) {
-            thankYouString += "linux32";
-        } else if (os.indexOf("Linux/BSD 64-bit") !== -1) {
-            thankYouString += "linux64";
-        }
-        if (language !== undefined && language !== null) {
-            // Separate the string and add the language code
-            thankYouString += "&lang=" + language;
-            }
-        }
-    }
-    $("#download-url").val(os).attr("href", "thankyou.html" + thankYouString);
+	var thankYouString = "?os=";
+	if (os !== undefined && os !== null) {
+		if (os.indexOf("Microsoft Windows") !== -1) {
+			thankYouString += "windows";
+		} else if (os.indexOf("Apple OS X") !== -1) {
+			thankYouString += "osx";
+		} else if (os.indexOf("Linux/BSD 32-bit") !== -1) {
+			thankYouString += "linux32";
+		} else if (os.indexOf("Linux/BSD 64-bit") !== -1) {
+			thankYouString += "linux64";
+		}
+		if (language !== undefined && language !== null) {
+			// Separate the string and add the language code
+			thankYouString += "&lang=" + language;
+		}
+	}
+	$("#download-url").val(os).attr("href", "thankyou.html" + thankYouString);
 }
 
 function setDownload(language, os) {
@@ -205,116 +203,116 @@ function langHighlight() {
 }
 
 function alertNoDownload() {
-    if ($("#download-url").attr("href").indexOf("#") === 0) {
-    	$( "#download-button" ).effect( "shake" , "slow" );
-        addDownloadWarning();
-        setTimeout(removeDownloadWarning, 1000);
-    }
-    else {
-        $('#javascript_on_wrapper').hide();
-        $('#thankyou_wrapper').show();
-    }
+	if ($("#download-url").attr("href").indexOf("#") === 0) {
+		$("#download-button").effect("shake", "slow");
+		addDownloadWarning();
+		setTimeout(removeDownloadWarning, 1000);
+	} else {
+		$('#javascript_on_wrapper').hide();
+		$('#thankyou_wrapper').show();
+	}
 }
 
 function addDownloadWarning() {
-    $("#about-download").addClass("about-download-warning");
+	$("#about-download").addClass("about-download-warning");
 }
 
 function removeDownloadWarning() {
-    $("#about-download").removeClass("about-download-warning");
+	$("#about-download").removeClass("about-download-warning");
 }
-function langchanger(language){
-			//LanguageCodes
-			var languageCodes = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
-			//Tor Text Above Button...
-				var ar_hero = String.fromCharCode(1578,1581,1605,1610,1604,32,1605,1578,1589,1601,1581,32,84,111,114);
-				//&#1578;&#1581;&#1605;&#1610;&#1604;&#32;&#1605;&#1578;&#1589;&#1601;&#1581;&#32;&#84;&#111;&#114;
-				var fa_hero = String.fromCharCode(1605,1585,1608,1585,1711,1585,32,84,111,114,32,1583,1575,1606,1604,1608,1583,32,1705,1606,1740,1583);
-				//&#1605;&#1585;&#1608;&#1585;&#1711;&#1585;&#32;&#84;&#111;&#114;&#32;&#1583;&#1575;&#1606;&#1604;&#1608;&#1583;&#32;&#1705;&#1606;&#1740;&#1583;
-			var downloadTorText = ["Download Tor Browser", ar_hero, "Laden Sie die Tor-Browser", "Descargar Tor Browser", fa_hero, "Télécharger le navigateur Tor", "Scaricare Tor Browser", "Downloaden van de Tor Browser", "Pobierz Tor Browser", "Baixar o navegador Tor", "скачать обозревателя Tor", "Tải về trình duyệt Tor", "下载Tor浏览器"];
-			//Tor Download Button Text
-				var ar_download = String.fromCharCode(1578,1606,1586,1610,1604);
-				//&#1578;&#1606;&#1586;&#1610;&#1604;
-				var fa_download = String.fromCharCode(1583,1575,1606,1604,1608,1583);
-				//&#1583;&#1575;&#1606;&#1604;&#1608;&#1583;
-			var downloadButton = ["Download",ar_download,"Herunterladen","Descargar",fa_download,"Télécharger","Scaricare","Downloaden","ściąganie","Baixar","скачать","Tải về","下载"];
-			//"Looking for something else? Select other options:"
-				var ar_options = String.fromCharCode(1578,1581,1583,1610,1583,32,1582,1610,1575,1578,32,1571,1582,1585,1609,58);
-				//&#1578;&#1581;&#1583;&#1610;&#1583;&#32;&#1582;&#1610;&#1575;&#1585;&#1575;&#1578;&#32;&#1571;&#1582;&#1585;&#1609;&#58;
-				var fa_options = String.fromCharCode(1575,1606,1578,1582,1575,1576,32,1711,1586,1740,1606,1607,32,1607,1575,1740,32,1583,1740,1711,1585,58);
-				//&#1575;&#1606;&#1578;&#1582;&#1575;&#1576;&#32;&#1711;&#1586;&#1740;&#1606;&#1607;&#32;&#1607;&#1575;&#1740;&#32;&#1583;&#1740;&#1711;&#1585;&#58;
-			var otherOptions = ["Looking for something else? Select other options:",ar_options, "Wählen Sie weitere Optionen:","Seleccione otras opciones:",fa_options,"Sélectionnez d'autres options:","Selezionare altre opzioni:","Selecteer andere opties:","Wybierz inne opcje:","Selecione outras opções:","Выберите другие параметры:","Chọn các tùy chọn khác:","选择其他选项："];
-			//About Tor
-				var ar_about = String.fromCharCode(1581,1608,1604,32,84,111,114);
-				//&#1581;&#1608;&#1604; (84,111,114)
-				var fa_about = String.fromCharCode(1583,1585,32,1581,1583,1608,1583,32,84,111,114);
-				//&#1583;&#1585;&#32;&#1581;&#1583;&#1608;&#1583; (84,111,114)
-			var aboutText = ["About Tor",ar_about,"Über Tor","Acerca de Tor",fa_about,"À propos de Tor","A proposito di Tor","over Tor","o Tor","sobre o Tor","О Tor","Về Tor","关于Tor"];
-			//Donate
-				var ar_donate = String.fromCharCode(1578,1576,1585,1593);
-				//&#1578;&#1576;&#1585;&#1593;
-				var fa_donate = String.fromCharCode(1576,1582,1588,1740,1583,1606);
-				//&#1576;&#1582;&#1588;&#1740;&#1583;&#1606;
-			var donateBtn = ["Donate",ar_donate,"Spenden","Donar",fa_donate,"Donner","Donare","Schenken","Darować","Doar","жертвовать","Tặng","捐赠"];
-			//"Want to test a beta Tor Browser?"
-				var ar_beta = String.fromCharCode(1605,1578,1589,1601,1581,32,1575,1604,1578,1580,1585,1601,1576,1610,1577);
-				//&#1605;&#1578;&#1589;&#1601;&#1581;&#32;&#1575;&#1604;&#1578;&#1580;&#1585;&#1610;&#1576;&#1610;&#1577;
-				var fa_beta = String.fromCharCode(1605,1585,1608,1585,1711,1585,32,1578,1580,1585,1576,1740);
-				//&#1605;&#1585;&#1608;&#1585;&#1711;&#1585;&#32;&#1578;&#1580;&#1585;&#1576;&#1740;
-			var betaBtn = ["Want to test a beta Tor Browser? ",ar_beta,"Experimentellen Browser","Navegador Experimental",fa_beta,"Navigateur Expérimental","Browser Sperimentale","Experimentele Browser","Przeglądarka Eksperymentalna","Navegador Experimental","экспериментальная браузера","Trình duyệt thử nghiệm","实验浏览器"];
-			//"Thank you for Downloading"
-				var ar_thanks = String.fromCharCode(1588,1603,1585,1575);
-				//&#1588;&#1603;&#1585;&#1575;
-				var fa_thanks = String.fromCharCode(46,1605,1578,1588,1705,1585,1605);
-				//&#46;&#1605;&#1578;&#1588;&#1705;&#1585;&#1605;
-			var thanksBtn = ["Thank You for Downloading",ar_thanks,"Danke","Gracias",fa_thanks,"Merci","Grazie","Dank U","Dziękuję","Obrigado","Спасибо","Cảm ơn Bạn","谢谢"]
-			//"Verify Signatures"
-				var ar_sig = String.fromCharCode(1575,1604,1578,1581,1602,1602,32,1605,1606,32,1575,1604,1578,1608,1602,1610,1593,1575,1578);
-				//&#1575;&#1604;&#1578;&#1581;&#1602;&#1602;&#32;&#1605;&#1606;&#32;&#1575;&#1604;&#1578;&#1608;&#1602;&#1610;&#1593;&#1575;&#1578;
-				var fa_sig = String.fromCharCode(1576,1585,1585,1587,1740,32,1705,1583,1607,1575,1740,32,1605,1580,1608,1586);
-				//&#1576;&#1585;&#1585;&#1587;&#1740;&#32;&#1705;&#1583;&#1607;&#1575;&#1740;&#32;&#1605;&#1580;&#1608;&#1586;
-			var sigBtn = ["Verify Signatures", ar_sig, "Überprüfen Signaturen", "Verificar Firmas", fa_sig, "Authentifier les Signatures", "Verificare le Firme", "Handtekeningen Verifiëren", "Weryfikacji Podpisów", "Verificar Assinaturas", "проверки подписей", "Xác minh Chữ Ký", "验证签名"];
-			//"What is this?"
-				var ar_what = String.fromCharCode(1605,1575,32,1607,1584,1575,1567);
-				//&#1605;&#1575;&#32;&#1607;&#1584;&#1575;&#1567;
-				var fa_what = String.fromCharCode(1575,1740,1606,32,1670,1740,1587,1578,1567);
-				//&#1575;&#1740;&#1606;&#32;&#1670;&#1740;&#1587;&#1578;&#1567;
-			var whatBtn = ["What is this?",ar_what,"Was ist das?","¿Qué es esto?",fa_what,"Qu'est-ce que c'est?","Che cos'è questo?","Wat is dit?","Co to jest?","O que é isso?","Что это?","Đây là những gì?","这是什么？"]
-			//"Other Tor Services"
-				var ar_other = String.fromCharCode(1582,1583,1605,1575,1578,32,1571,1582,1585,1609);
-				//&#1582;&#1583;&#1605;&#1575;&#1578;&#32;&#1571;&#1582;&#1585;&#1609;
-				var fa_other = String.fromCharCode(1587,1575,1740,1585,32,1582,1583,1605,1575,1578);
-				//&#1587;&#1575;&#1740;&#1585;&#32;&#1582;&#1583;&#1605;&#1575;&#1578;
-			var otherBtn = ["Other Tor Services", ar_other, "Andere Dienstleistungen", "Otros Servicios", fa_options, "Autres Services","Altri Servizi","Overige Diensten","Inne Usługi","outros Serviços","Прочие услуги","Các Dịch Vụ Khác","其他服务"]
-			//"Help Using Tor"
-				var ar_help = String.fromCharCode();
-				//
-				var fa_help = String.fromCharCode();
-				//
-			var helpBtn = ["Help Using Tor"]
-			//jQuery Switcher;
-			var humanReadableIndex = languageCodes.indexOf(language);
-			if (humanReadableIndex !== undefined) {
-				var torHero = downloadTorText[humanReadableIndex];
-				$("#download-tor-hero").text(torHero);
-				var torDownload = downloadButton[humanReadableIndex];
-				$("#download-url").text(torDownload);
-				var otherOpt = otherOptions[humanReadableIndex];
-				$("#otherOptions").text(otherOpt);
-				var aboutButton = aboutText[humanReadableIndex];
-				$("#aboutTor").text(aboutButton);
-				$("#aboutTor2").text(aboutButton);
-				var donateText = donateBtn[humanReadableIndex];
-				$("#donateButton").text(donateText);
-				$("#donateButton2").text(donateText);
-				$("#donateButton3").text(donateText);
-				var betaText = betaBtn[humanReadableIndex];
-				$("#beta").text(betaText);
-				var thankText = thanksBtn[humanReadableIndex];
-				$("#thanks").text(thankText);
-				var sigText = sigBtn[humanReadableIndex];
-				$("#sig-url").text(sigText);
-				var whatText = whatBtn[humanReadableIndex];
-				$("#what-btn").text(whatText);
-}
+
+function langchanger(language) {
+	//LanguageCodes
+	var languageCodes = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
+	//Tor Text Above Button...
+	var ar_hero = String.fromCharCode(1578, 1581, 1605, 1610, 1604, 32, 1605, 1578, 1589, 1601, 1581, 32, 84, 111, 114);
+	//&#1578;&#1581;&#1605;&#1610;&#1604;&#32;&#1605;&#1578;&#1589;&#1601;&#1581;&#32;&#84;&#111;&#114;
+	var fa_hero = String.fromCharCode(1605, 1585, 1608, 1585, 1711, 1585, 32, 84, 111, 114, 32, 1583, 1575, 1606, 1604, 1608, 1583, 32, 1705, 1606, 1740, 1583);
+	//&#1605;&#1585;&#1608;&#1585;&#1711;&#1585;&#32;&#84;&#111;&#114;&#32;&#1583;&#1575;&#1606;&#1604;&#1608;&#1583;&#32;&#1705;&#1606;&#1740;&#1583;
+	var downloadTorText = ["Download Tor Browser", ar_hero, "Laden Sie die Tor-Browser", "Descargar Tor Browser", fa_hero, "Télécharger le navigateur Tor", "Scaricare Tor Browser", "Downloaden van de Tor Browser", "Pobierz Tor Browser", "Baixar o navegador Tor", "скачать обозревателя Tor", "Tải về trình duyệt Tor", "下载Tor浏览器"];
+	//Tor Download Button Text
+	var ar_download = String.fromCharCode(1578, 1606, 1586, 1610, 1604);
+	//&#1578;&#1606;&#1586;&#1610;&#1604;
+	var fa_download = String.fromCharCode(1583, 1575, 1606, 1604, 1608, 1583);
+	//&#1583;&#1575;&#1606;&#1604;&#1608;&#1583;
+	var downloadButton = ["Download", ar_download, "Herunterladen", "Descargar", fa_download, "Télécharger", "Scaricare", "Downloaden", "ściąganie", "Baixar", "скачать", "Tải về", "下载"];
+	//"Looking for something else? Select other options:"
+	var ar_options = String.fromCharCode(1578, 1581, 1583, 1610, 1583, 32, 1582, 1610, 1575, 1578, 32, 1571, 1582, 1585, 1609, 58);
+	//&#1578;&#1581;&#1583;&#1610;&#1583;&#32;&#1582;&#1610;&#1575;&#1585;&#1575;&#1578;&#32;&#1571;&#1582;&#1585;&#1609;&#58;
+	var fa_options = String.fromCharCode(1575, 1606, 1578, 1582, 1575, 1576, 32, 1711, 1586, 1740, 1606, 1607, 32, 1607, 1575, 1740, 32, 1583, 1740, 1711, 1585, 58);
+	//&#1575;&#1606;&#1578;&#1582;&#1575;&#1576;&#32;&#1711;&#1586;&#1740;&#1606;&#1607;&#32;&#1607;&#1575;&#1740;&#32;&#1583;&#1740;&#1711;&#1585;&#58;
+	var otherOptions = ["Looking for something else? Select other options:", ar_options, "Wählen Sie weitere Optionen:", "Seleccione otras opciones:", fa_options, "Sélectionnez d'autres options:", "Selezionare altre opzioni:", "Selecteer andere opties:", "Wybierz inne opcje:", "Selecione outras opções:", "Выберите другие параметры:", "Chọn các tùy chọn khác:", "选择其他选项："];
+	//About Tor
+	var ar_about = String.fromCharCode(1581, 1608, 1604, 32, 84, 111, 114);
+	//&#1581;&#1608;&#1604; (84,111,114)
+	var fa_about = String.fromCharCode(1583, 1585, 32, 1581, 1583, 1608, 1583, 32, 84, 111, 114);
+	//&#1583;&#1585;&#32;&#1581;&#1583;&#1608;&#1583; (84,111,114)
+	var aboutText = ["About Tor", ar_about, "Über Tor", "Acerca de Tor", fa_about, "À propos de Tor", "A proposito di Tor", "over Tor", "o Tor", "sobre o Tor", "О Tor", "Về Tor", "关于Tor"];
+	//Donate
+	var ar_donate = String.fromCharCode(1578, 1576, 1585, 1593);
+	//&#1578;&#1576;&#1585;&#1593;
+	var fa_donate = String.fromCharCode(1576, 1582, 1588, 1740, 1583, 1606);
+	//&#1576;&#1582;&#1588;&#1740;&#1583;&#1606;
+	var donateBtn = ["Donate", ar_donate, "Spenden", "Donar", fa_donate, "Donner", "Donare", "Schenken", "Darować", "Doar", "жертвовать", "Tặng", "捐赠"];
+	//"Want to test a beta Tor Browser?"
+	var ar_beta = String.fromCharCode(1605, 1578, 1589, 1601, 1581, 32, 1575, 1604, 1578, 1580, 1585, 1601, 1576, 1610, 1577);
+	//&#1605;&#1578;&#1589;&#1601;&#1581;&#32;&#1575;&#1604;&#1578;&#1580;&#1585;&#1610;&#1576;&#1610;&#1577;
+	var fa_beta = String.fromCharCode(1605, 1585, 1608, 1585, 1711, 1585, 32, 1578, 1580, 1585, 1576, 1740);
+	//&#1605;&#1585;&#1608;&#1585;&#1711;&#1585;&#32;&#1578;&#1580;&#1585;&#1576;&#1740;
+	var betaBtn = ["Want to test a beta Tor Browser? ", ar_beta, "Experimentellen Browser", "Navegador Experimental", fa_beta, "Navigateur Expérimental", "Browser Sperimentale", "Experimentele Browser", "Przeglądarka Eksperymentalna", "Navegador Experimental", "экспериментальная браузера", "Trình duyệt thử nghiệm", "实验浏览器"];
+	//"Thank you for Downloading"
+	var ar_thanks = String.fromCharCode(1588, 1603, 1585, 1575);
+	//&#1588;&#1603;&#1585;&#1575;
+	var fa_thanks = String.fromCharCode(46, 1605, 1578, 1588, 1705, 1585, 1605);
+	//&#46;&#1605;&#1578;&#1588;&#1705;&#1585;&#1605;
+	var thanksBtn = ["Thank You for Downloading", ar_thanks, "Danke", "Gracias", fa_thanks, "Merci", "Grazie", "Dank U", "Dziękuję", "Obrigado", "Спасибо", "Cảm ơn Bạn", "谢谢"]
+	//"Verify Signatures"
+	var ar_sig = String.fromCharCode(1575, 1604, 1578, 1581, 1602, 1602, 32, 1605, 1606, 32, 1575, 1604, 1578, 1608, 1602, 1610, 1593, 1575, 1578);
+	//&#1575;&#1604;&#1578;&#1581;&#1602;&#1602;&#32;&#1605;&#1606;&#32;&#1575;&#1604;&#1578;&#1608;&#1602;&#1610;&#1593;&#1575;&#1578;
+	var fa_sig = String.fromCharCode(1576, 1585, 1585, 1587, 1740, 32, 1705, 1583, 1607, 1575, 1740, 32, 1605, 1580, 1608, 1586);
+	//&#1576;&#1585;&#1585;&#1587;&#1740;&#32;&#1705;&#1583;&#1607;&#1575;&#1740;&#32;&#1605;&#1580;&#1608;&#1586;
+	var sigBtn = ["Verify Signatures", ar_sig, "Überprüfen Signaturen", "Verificar Firmas", fa_sig, "Authentifier les Signatures", "Verificare le Firme", "Handtekeningen Verifiëren", "Weryfikacji Podpisów", "Verificar Assinaturas", "проверки подписей", "Xác minh Chữ Ký", "验证签名"];
+	//"What is this?"
+	var ar_what = String.fromCharCode(1605, 1575, 32, 1607, 1584, 1575, 1567);
+	//&#1605;&#1575;&#32;&#1607;&#1584;&#1575;&#1567;
+	var fa_what = String.fromCharCode(1575, 1740, 1606, 32, 1670, 1740, 1587, 1578, 1567);
+	//&#1575;&#1740;&#1606;&#32;&#1670;&#1740;&#1587;&#1578;&#1567;
+	var whatBtn = ["What is this?", ar_what, "Was ist das?", "¿Qué es esto?", fa_what, "Qu'est-ce que c'est?", "Che cos'è questo?", "Wat is dit?", "Co to jest?", "O que é isso?", "Что это?", "Đây là những gì?", "这是什么？"]
+	//"Other Tor Services"
+	var ar_other = String.fromCharCode(1582, 1583, 1605, 1575, 1578, 32, 1571, 1582, 1585, 1609);
+	//&#1582;&#1583;&#1605;&#1575;&#1578;&#32;&#1571;&#1582;&#1585;&#1609;
+	var fa_other = String.fromCharCode(1587, 1575, 1740, 1585, 32, 1582, 1583, 1605, 1575, 1578);
+	//&#1587;&#1575;&#1740;&#1585;&#32;&#1582;&#1583;&#1605;&#1575;&#1578;
+	var otherBtn = ["Other Tor Services", ar_other, "Andere Dienstleistungen", "Otros Servicios", fa_options, "Autres Services", "Altri Servizi", "Overige Diensten", "Inne Usługi", "outros Serviços", "Прочие услуги", "Các Dịch Vụ Khác", "其他服务"]
+	//"Help Using Tor"
+	var ar_help = String.fromCharCode();
+	//
+	var fa_help = String.fromCharCode();
+	//
+	var helpBtn = ["Help Using Tor"]
+	//jQuery Switcher;
+	var humanReadableIndex = languageCodes.indexOf(language);
+	if (humanReadableIndex !== undefined) {
+		var torHero = downloadTorText[humanReadableIndex];
+		$("#download-tor-hero").text(torHero);
+		var torDownload = downloadButton[humanReadableIndex];
+		$("#download-url").text(torDownload);
+		var otherOpt = otherOptions[humanReadableIndex];
+		$("#otherOptions").text(otherOpt);
+		var aboutButton = aboutText[humanReadableIndex];
+		$("#aboutTor").text(aboutButton);
+		$("#aboutTor2").text(aboutButton);
+		var donateText = donateBtn[humanReadableIndex];
+		$("#donateButton").text(donateText);
+		$("#donateButton2").text(donateText);
+		$("#donateButton3").text(donateText);
+		var betaText = betaBtn[humanReadableIndex];
+		$("#beta").text(betaText);
+		var thankText = thanksBtn[humanReadableIndex];
+		$("#thanks").text(thankText);
+		var sigText = sigBtn[humanReadableIndex];
+		$("#sig-url").text(sigText);
+		var whatText = whatBtn[humanReadableIndex];
+		$("#what-btn").text(whatText);
+	}
 }
