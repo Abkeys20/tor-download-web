@@ -110,7 +110,7 @@ function setThankYou(language, os) {
 		}
 	}
 	$("#download-url").val(os).attr("href", "thankyou.html" + thankYouString);
-	setAboutDownload();
+	setAboutDownload(language, os);
 }
 
 function setAboutDownload(language, os) {
