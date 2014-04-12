@@ -20,7 +20,7 @@ function preSelect() {
 	if (os !== null) {
 		$("select[name=os]").val(os).attr("selected", "selected");
 	}
-	setDownload(language, os);
+	setThankYou(language, os);
 }
 
 // Detects language, OS version, and architecture to pre-select the dropdowns
