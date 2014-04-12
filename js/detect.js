@@ -178,7 +178,7 @@ function onLanguageChange() {
 	templang = language;
 	langchanger(language);
 	var os = tempos;
-	setDownload(language, os);
+	setThankYou(language, os);
 	if (langHighlightBool === true) {
 		$("lang_selector").removeClass("dropdown-warning");
 		langHighlightBool = false;
@@ -189,7 +189,7 @@ function onOSChange() {
 	var language = templang;
 	var os = $("select[name=os]").val();
 	tempos = os;
-	setDownload(language, os);
+	setThankYou(language, os);
 	if (osHighlightBool === true) {
 		$("#os_selector").removeClass("dropdown-warning");
 		osHighlightBool = false;
