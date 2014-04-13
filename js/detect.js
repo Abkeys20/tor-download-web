@@ -213,7 +213,6 @@ function alertNoDownload() {
 		setTimeout(removeDownloadWarning, 1000);
 	} else {
 		$('#javascript-on-wrapper').hide();
-		$('#thank-you-wrapper').show();
 	}
 }
 
