@@ -2,10 +2,12 @@
 $(document).ready(function() {
 	preSelect();
 });
+
 var templang;
 var tempos;
 var langHighlightBool;
 var osHighlightBool;
+
 function preSelect() {
 	$("select[name=language]").prop('selectedIndex', -1)
 	$("select[name=os]").prop('selectedIndex', -1)
