@@ -1,5 +1,8 @@
 $(document).ready(function() {
-    detectParameters();
+    if (!checkBackButton()) {
+        detectParameters();
+        markBackButton();
+    }
 });
 
 function detectParameters() {
@@ -40,6 +43,24 @@ function setDownload(language, os) {
             $("#sig-url").val(os).attr("href", lintbb64sig);
         }
     }
+}
+
+// Check if the user got to the page by pressing the back button
+// If they have not gotten to the page by pressing the back button, then return false
+// If they have used the back button, return true
+function checkBackButton() {
+    var backButton = document.getElementById("check-back-button-input").value;
+    if (backButton === "false") {
+        return false;
+    }
+    else if (backButton === "true") {
+        return true;
+    }
+}
+
+// Mark the page to indicate that the user has already visited it
+function markBackButton() {
+    $("#check-back-button-input").val("true");
 }
 
 // Function is from here: http://css-tricks.com/snippets/javascript/get-url-variables/
