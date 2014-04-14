@@ -116,7 +116,7 @@ function setThankYou(language, os) {
 }
 
 function setAboutDownload(language, os) {
-	if (language !== undefined && language !== null) {
+	if (language !== undefined && language !== null && os !== undefined && os !== null) {
 		// Make the language code human-readable
 		var languageCodes = ["en-US", "ar", "de", "es-ES", "fa", "fr", "it", "nl", "pl", "pt-PT", "ru", "vi", "zh-CN"];
 		var arLang = String.fromCharCode(1575, 1604, 1593, 1585, 1576, 1610, 1577);
