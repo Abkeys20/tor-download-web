@@ -8,7 +8,7 @@
 en-US: Download Tor Browser
 ar: String.fromCharCode()
 de:
-es-ES:
+es-ES: Descargar Tor Browser
 fa: String.fromCharCode()
 fr:
 it:
@@ -24,7 +24,7 @@ zh-CH:
 en-US: Download
 ar: String.fromCharCode()
 de:
-es-ES:
+es-ES: Descargar
 fa: String.fromCharCode()
 fr:
 it:
@@ -37,10 +37,10 @@ zh-CH:
 
 //Looking for something else? Select other options
 /*
-en-US: Looking for something else? Select other options
+en-US: Looking for something else? Select other options:
 ar: String.fromCharCode()
 de:
-es-ES:
+es-ES: Seleccione otras opciones:
 fa: String.fromCharCode()
 fr:
 it:
@@ -56,7 +56,7 @@ zh-CH:
 en-US: About Tor
 ar: String.fromCharCode()
 de:
-es-ES:
+es-ES: Acerca de Tor
 fa: String.fromCharCode()
 fr:
 it:
@@ -72,7 +72,7 @@ zh-CH:
 en-US: Donate
 ar: String.fromCharCode()
 de:
-es-ES:
+es-ES: Donar
 fa: String.fromCharCode()
 fr:
 it:
@@ -88,7 +88,7 @@ zh-CH:
 en-US: Want to test a beta Tor Browser?
 ar: String.fromCharCode()
 de:
-es-ES:
+es-ES: Navegador Experimental
 fa: String.fromCharCode()
 fr:
 it:
@@ -104,7 +104,7 @@ zh-CH:
 en-US: Thank You for Downloading
 ar: String.fromCharCode()
 de:
-es-ES:
+es-ES: Gracias
 fa: String.fromCharCode()
 fr:
 it:
@@ -120,7 +120,7 @@ zh-CH:
 en-US: Verify Signatures
 ar: String.fromCharCode()
 de:
-es-ES:
+es-ES: Verificar Firmas
 fa: String.fromCharCode()
 fr:
 it:
@@ -136,7 +136,7 @@ zh-CH:
 en-US: What is this?
 ar: String.fromCharCode()
 de:
-es-ES:
+es-ES: ¿Qué es esto?
 fa: String.fromCharCode()
 fr:
 it:
@@ -152,7 +152,7 @@ zh-CH:
 en-US: Other Tor Services
 ar: String.fromCharCode()
 de:
-es-ES:
+es-ES: Otros Servicios
 fa: String.fromCharCode()
 fr:
 it:
