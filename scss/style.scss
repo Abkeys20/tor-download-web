@@ -181,6 +181,21 @@ h2 {
 #what-is {
   @extend #about-download;
 }
+#download-not-start {
+  @extend #what-is;
+  
+  a {
+    text-decoration: none;
+    border-radius: 2px;
+    @include transition(background .1s);
+
+    &:hover {
+      text-decoration: none;
+      background: #555;
+      background: rgba(white, .15);
+    }
+  }
+}
 #download-details {
   font-size: 32px;
 }

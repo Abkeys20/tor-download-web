@@ -78,9 +78,9 @@ table {
     line-height: 30px;
     font-size: 12px; }
 
-.about-author, .about-beta, #about-download, .about-download-warning, #what-is {
+.about-author, .about-beta, #about-download, .about-download-warning, #what-is, #download-not-start {
   margin-top: 5px; }
-  .about-author > a, .about-beta > a, #about-download > a, .about-download-warning > a, #what-is > a {
+  .about-author > a, .about-beta > a, #about-download > a, .about-download-warning > a, #what-is > a, #download-not-start > a {
     padding: 1px 3px;
     margin: 0 -1px; }
 
@@ -237,6 +237,19 @@ h2 {
 
 .center-text {
   text-align: center; }
+
+#download-not-start a {
+  color: black;
+  text-decoration: none;
+  border-radius: 2px;
+  -webkit-transition: background 0.1s;
+  -moz-transition: background 0.1s;
+  -o-transition: background 0.1s;
+  transition: background 0.1s; }
+  #download-not-start a:hover {
+    text-decoration: none;
+    background: #555;
+    background: rgba(255, 255, 255, 0.15); }
 
 #download-details {
   font-size: 32px; }
