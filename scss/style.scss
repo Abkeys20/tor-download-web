@@ -185,6 +185,7 @@ h2 {
   @extend #what-is;
   
   a {
+    color: black;
     text-decoration: none;
     border-radius: 2px;
     @include transition(background .1s);
