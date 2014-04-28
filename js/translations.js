@@ -168,7 +168,7 @@ zh-CH:
 en-US: Help Using Tor
 ar: String.fromCharCode()
 de:
-es-ES:
+es-ES: Ayuda con el uso de Tor
 fa: String.fromCharCode()
 fr:
 it:
