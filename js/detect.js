@@ -393,7 +393,7 @@ function langchanger(language) {
 		var torDownload = downloadButton[humanReadableIndex];
 		$("#download-url").text(torDownload);
 		var otherOpt = otherOptions[humanReadableIndex];
-		$("#otherOptions").text(otherOpt);
+		$("#other-options").text(otherOpt);
 		var aboutButton = aboutText[humanReadableIndex];
 		$("#aboutTor").text(aboutButton);
 		$("#aboutTor2").text(aboutButton);
