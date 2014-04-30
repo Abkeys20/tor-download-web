@@ -1,9 +1,12 @@
 $(document).ready(function() {
+	//HIDE SHOW FOR SIGNATURES
+	$('#sig-info').hide();
 	if (!checkBackButton()) {
 		detectParameters();
 		markBackButton();
 	}
 });
+
 
 function detectParameters() {
 	var os = getQueryVariable("os");
@@ -81,4 +84,16 @@ function getQueryVariable(variable) {
 		}
 	}
 	return (false);
+}
+var infoClicks = 1;
+function toggleInfo(){
+	$('#sig-info').toggle();
+	if(infoClicks%2 == 1){
+		$('#changeText').text('Hide');
+		infoClicks++;
+	}
+	else{
+		$('#changeText').text('What is this?');
+		infoClicks++;
+	}
 }
