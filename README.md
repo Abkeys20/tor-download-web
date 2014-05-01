@@ -38,6 +38,8 @@ Some code is used or modified from:
 
 * jQuery, which is under the MIT license. See https://jquery.org/license/ for more information.
 
+* jQuery UI, which is under the MIT license. See https://jquery.org/license/ for more information.
+
 * html5shim by Remy Sharp, which is under the MIT license. See https://code.google.com/p/html5shim/ for more information.
 
 * CSS Browser Selector by Rafael Lima, which is under a Creative Commons Attribution 2.5 Generic License. See http://creativecommons.org/licenses/by/2.5/ for more information and visit the project at http://rafael.adm.br/css_browser_selector/.
