@@ -20,10 +20,10 @@ function setDownload(language, os) {
 			+ language + '.exe';
 	var wintbbsig = 'https://www.torproject.org/dist/torbrowser/3.6/torbrowser-install-3.6_'
 			+ language + '.exe.asc';
-	var osxtbb32 = 'https://www.torproject.org/dist/torbrowser/3.6/TorBrowserBundle-3.6-osx32_'
-			+ language + '.zip';
-	var osxtbb32sig = 'https://www.torproject.org/dist/torbrowser/3.6/TorBrowserBundle-3.6-osx32_'
-			+ language + '.zip.asc';
+	var osxtbb32 = 'https://www.torproject.org/dist/torbrowser/3.6/TorBrowser-3.6-osx32_'
+			+ language + '.dmg';
+	var osxtbb32sig = 'https://www.torproject.org/dist/torbrowser/3.6/TorBrowser-3.6-osx32_'
+			+ language + '.dmg.asc';
 	// Apparently there is no 64-bit OS X download, even though it's in the source of the Tor Project's "All Downloads" page:
 	// var osxtbb64 = 'https://www.torproject.org/dist/torbrowser/3.6/TorBrowserBundle-3.6-osx64_' + language + '.zip';
 	var lintbb32 = 'https://www.torproject.org/dist/torbrowser/3.6/tor-browser-linux32-3.6_'
