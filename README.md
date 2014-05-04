@@ -43,3 +43,5 @@ Some code is used or modified from:
 * html5shim by Remy Sharp, which is under the MIT license. See https://code.google.com/p/html5shim/ for more information.
 
 * CSS Browser Selector by Rafael Lima, which is under a Creative Commons Attribution 2.5 Generic License. See http://creativecommons.org/licenses/by/2.5/ for more information and visit the project at http://rafael.adm.br/css_browser_selector/.
+
+* Downloads are hosted on tbb-bin by Griffin Boyce for more information visit https://github.com/glamrock/tbb-bin
