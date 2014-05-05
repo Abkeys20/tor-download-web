@@ -12,7 +12,7 @@ es-ES: Descargar Tor Browser
 fa: String.fromCharCode()
 fr:
 it:
-pl:
+pl: Pobierz Tor Browser
 pt-PT:
 ru:
 vi:
@@ -28,7 +28,7 @@ es-ES: Descargar
 fa: String.fromCharCode()
 fr:
 it:
-pl:
+pl: Pobierz
 pt-PT:
 ru:
 vi:
@@ -44,7 +44,7 @@ es-ES: Seleccione otras opciones:
 fa: String.fromCharCode()
 fr:
 it:
-pl:
+pl: Szukasz czego&#347; innego? Wybierz jedn&#261; z innych opcji:
 pt-PT:
 ru:
 vi:
@@ -60,7 +60,7 @@ es-ES: Acerca de Tor
 fa: String.fromCharCode()
 fr:
 it:
-pl:
+pl: O Torze
 pt-PT:
 ru:
 vi:
@@ -76,7 +76,7 @@ es-ES: Donar
 fa: String.fromCharCode()
 fr:
 it:
-pl:
+pl: Wspom&#243;&#380;
 pt-PT:
 ru:
 vi:
@@ -92,7 +92,7 @@ es-ES: Navegador Experimental
 fa: String.fromCharCode()
 fr:
 it:
-pl:
+pl: Chcesz przetestowa&#263; wersj&#281; beta Tor Browser?
 pt-PT:
 ru:
 vi:
@@ -108,7 +108,7 @@ es-ES: Gracias
 fa: String.fromCharCode()
 fr:
 it:
-pl:
+pl: Dzi&#281;kujemy za pobranie Tor Browser
 pt-PT:
 ru:
 vi:
@@ -124,7 +124,7 @@ es-ES: Verificar Firmas
 fa: String.fromCharCode()
 fr:
 it:
-pl:
+pl: Zweryfikuj sygnatury
 pt-PT:
 ru:
 vi:
@@ -140,7 +140,7 @@ es-ES: ¿Qué es esto?
 fa: String.fromCharCode()
 fr:
 it:
-pl:
+pl: Co to jest?
 pt-PT:
 ru:
 vi:
@@ -156,7 +156,7 @@ es-ES: Otros Servicios
 fa: String.fromCharCode()
 fr:
 it:
-pl:
+pl: Inne us&#322;ugi Tora
 pt-PT:
 ru:
 vi:
@@ -172,7 +172,7 @@ es-ES: Ayuda con el uso de Tor
 fa: String.fromCharCode()
 fr:
 it:
-pl:
+pl: Pomoc z korzystaniu z Tora
 pt-PT:
 ru:
 vi:
