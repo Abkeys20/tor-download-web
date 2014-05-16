@@ -15,6 +15,16 @@ cd $DIST_FOLDER
 VERSION=`ls`
 if [ ! -z $VERSION ]
 then
+
+gpg --no-default-keyring --keyring /etc/pubring.gpg --verify file.tgz.sig file.tgz
+
+if [ $? -eq 0 ]
+then
+    echo All good.
+else
+    echo Signature is invalid.
+fi
+
   # Check the GPG signatures. IMPORTANT: ONLY CONTINUE IF THE SIGNATURES CAN BE SUCCESSFULLY VERIFIED. Otherwise, print an error.
   
   # Create mirror/ and move the version directory (e.g. 3.6) into the folder (so the new path is mirror/3.6/)
