@@ -1,8 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 # Use rsync to get the contents of the mirror from torproject.org
+rsync -av --delete rsync://rsync.torproject.org/website-mirror tor-mirror/
+cd tor-mirror/
 
 # If there is an update, check for the latest version of the Tor Browser
+cd dist/torbrowser/
+ls
 
 # Check the GPG signatures. IMPORTANT: ONLY CONTINUE IF THE SIGNATURES CAN BE SUCCESSFULLY VERIFIED. Otherwise, print an error.
 
