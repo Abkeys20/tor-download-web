@@ -2,12 +2,16 @@
 
 # This is a work in progress. When this message has been removed, it is ready to use.
 
+MIRROR_URL=rsync://rsync.torproject.org/website-mirror
+TARGET_DIR=tor-mirror/
+DIST_FOLDER=dist/torbrowser/
+
 # Use rsync to get the contents of the mirror from torproject.org
-rsync -av --delete rsync://rsync.torproject.org/website-mirror tor-mirror/
-cd tor-mirror/
+rsync -av --delete $MIRROR_URL $TARGET_DIR
+cd $TARGET_DIR
 
 # If there is an update, check for the latest version of the Tor Browser
-cd dist/torbrowser/
+cd $DIST_FOLDER
 ls
 
 # Check the GPG signatures. IMPORTANT: ONLY CONTINUE IF THE SIGNATURES CAN BE SUCCESSFULLY VERIFIED. Otherwise, print an error.
