@@ -15,28 +15,23 @@ function detectParameters() {
 }
 
 function setDownload(language, os) {
-	// Values taken from the source code of https://github.com/glamrock/tbb-bin
-	//https://github.com/glamrock/tbb-bin/blob/master/torbrowser-install-3.6_es-ES.exe?raw=true
-	var wintbb = 'https://github.com/glamrock/tbb-bin/blob/master/torbrowser-install-3.6_'
-			+ language + '.exe?raw=true';
+	// Values taken from the source code of https://www.torproject.org/download/download.html.en
+	var wintbb = 'https://www.torproject.org/dist/torbrowser/3.6/torbrowser-install-3.6_'
+			+ language + '.exe';
 	var wintbbsig = 'https://www.torproject.org/dist/torbrowser/3.6/torbrowser-install-3.6_'
 			+ language + '.exe.asc';
-	//https://github.com/glamrock/tbb-bin/blob/master/TorBrowser-3.6-osx32_en-US.dmg?raw=true
-	var osxtbb32 = 'https://github.com/glamrock/tbb-bin/blob/master/TorBrowser-3.6-osx32_'
-			+ language + '.dmg?raw=true';
+	var osxtbb32 = 'https://www.torproject.org/dist/torbrowser/3.6/TorBrowser-3.6-osx32_'
+			+ language + '.dmg';
 	var osxtbb32sig = 'https://www.torproject.org/dist/torbrowser/3.6/TorBrowser-3.6-osx32_'
 			+ language + '.dmg.asc';
 	// Apparently there is no 64-bit OS X download, even though it's in the source of the Tor Project's "All Downloads" page:
 	// var osxtbb64 = 'https://www.torproject.org/dist/torbrowser/3.6/TorBrowserBundle-3.6-osx64_' + language + '.zip';
-	
-	//https://github.com/glamrock/tbb-bin/blob/master/tor-browser-linux32-3.6_en-US.tar.xz?raw=true
-	var lintbb32 = 'https://github.com/glamrock/tbb-bin/blob/master/tor-browser-linux32-3.6_'
-			+ language + '.tar.xz?raw=true';
+	var lintbb32 = 'https://www.torproject.org/dist/torbrowser/3.6/tor-browser-linux32-3.6_'
+			+ language + '.tar.xz';
 	var lintbb32sig = 'https://www.torproject.org/dist/torbrowser/3.6/tor-browser-linux32-3.6_'
 			+ language + '.tar.xz.asc';
-	//https://github.com/glamrock/tbb-bin/blob/master/tor-browser-linux64-3.6_en-US.tar.xz?raw=true
-	var lintbb64 = 'https://github.com/glamrock/tbb-bin/blob/master/tor-browser-linux64-3.6_'
-			+ language + '.tar.xz?raw=true';
+	var lintbb64 = 'https://www.torproject.org/dist/torbrowser/3.6/tor-browser-linux64-3.6_'
+			+ language + '.tar.xz';
 	var lintbb64sig = 'https://www.torproject.org/dist/torbrowser/3.6/tor-browser-linux64-3.6_'
 			+ language + '.tar.xz.asc';
 	if (os !== undefined && os !== null) {
