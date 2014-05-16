@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This is a work in progress. When this message has been removed, it is ready to use.
+
 # Use rsync to get the contents of the mirror from torproject.org
 rsync -av --delete rsync://rsync.torproject.org/website-mirror tor-mirror/
 cd tor-mirror/
