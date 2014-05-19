@@ -23,6 +23,7 @@ then
     echo All good.
 else
     echo Signature is invalid.
+    exit 0
 fi
 
   # Check the GPG signatures. IMPORTANT: ONLY CONTINUE IF THE SIGNATURES CAN BE SUCCESSFULLY VERIFIED. Otherwise, print an error.
