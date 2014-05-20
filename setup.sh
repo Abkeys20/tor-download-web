@@ -9,6 +9,11 @@ TARGET_DIR=tor-mirror/
 DIST_FOLDER=dist/torbrowser/
 
 echo "Updating to latest version from repository."
+
+mkdir -p $TARGET_DIR
+
+# clone and update
+git clone https://github.com/wpapper/tor-download-web.git $TARGET_DIR
 cd $TARGET_DIR && git pull
 
 echo "Rsyncing files to $DIST_FOLDER."
@@ -34,7 +39,7 @@ fi
 echo "Finished rsyncing files to $DIST_FOLDER."
 
 # check version
-VERSION = `ls -v $DIST_FOLDER | tail -n 1`
+VERSION=`ls -v $DIST_FOLDER | tail -n 1`
 
 # If there is an update, check for the latest version of the Tor Browser
 if [ -d $DIRECTORY ]; then
@@ -61,10 +66,11 @@ echo "Signatures are valid."
 
 # Create mirror/ and move the version directory (e.g. 3.6) into the folder (so the new path is mirror/3.6/)
 echo "Installing newer version"
-mkdir -p $TARGET_DIR$VERSION
+mkdir -p $TARGET_DIR/dists/torbrowser/$VERSION
 
-cp -r $DIST_FOLDER$VERSION $TARGET_DIR
-  
+
+cp -r $DIST_FOLDER$VERSION $TARGET_DIR/dists/torbrowser/$VERSION
+
 # Update the URLs in thank-you.js to point to the new files on the mirror
 sed -e "s/%VERSION/$VERSION/g" original.txt > new.txt
 
