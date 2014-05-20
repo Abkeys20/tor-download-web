@@ -6,6 +6,7 @@ echo "Creating Tor Browser mirror."
 
 MIRROR_URL=rsync://rsync.torproject.org/website-mirror/dist/torbrowser/
 TARGET_DIR=tor-mirror/
+#/dists/torbrowser/
 DIST_FOLDER=dist/torbrowser/
 
 echo "Updating to latest version from repository."
@@ -14,7 +15,7 @@ mkdir -p $TARGET_DIR
 
 # clone and update
 git clone https://github.com/wpapper/tor-download-web.git $TARGET_DIR
-cd $TARGET_DIR && git pull
+#cd $TARGET_DIR && git pull
 
 echo "Rsyncing files to $DIST_FOLDER."
 
@@ -42,7 +43,7 @@ echo "Finished rsyncing files to $DIST_FOLDER."
 VERSION=`ls -v $DIST_FOLDER | tail -n 1`
 
 # If there is an update, check for the latest version of the Tor Browser
-if [ -d $DIRECTORY ]; then
+if [ -d $TARGET_DIRdists/torbrowser/$VERSION ]; then
     echo "Already latest version."
     exit 1
 fi
@@ -54,7 +55,7 @@ echo "Checking integrity."
 gpg --keyserver x-hkp://pool.sks-keyservers.net --recv-keys 0x416F061063FEE659 0x28988BF5 0x19F78451 0x165733EA  0x8D29319A 0x63FEE659 0xF1F5C9B5 0x31B0974B 0x6B4D6475 0x886DDD89 0xC82E00390xE1DEC577 0xE012B42D
 
 # check all signatures, need refinal
-find ./ -name "*.asc" -print0| xargs -0 -i{} gpg --verify {} > /dev/null 2>1
+find $DIST_FOLDER -name "*.asc" -print0| xargs -0 -i{} gpg --verify {} > /dev/null 2>1
 
 if [ $? -gt 0 ]
 then
@@ -66,10 +67,10 @@ echo "Signatures are valid."
 
 # Create mirror/ and move the version directory (e.g. 3.6) into the folder (so the new path is mirror/3.6/)
 echo "Installing newer version"
-mkdir -p $TARGET_DIR/dists/torbrowser/$VERSION
+mkdir -p $TARGET_DIRdists/torbrowser/$VERSION
 
 
-cp -r $DIST_FOLDER$VERSION $TARGET_DIR/dists/torbrowser/$VERSION
+cp -r $DIST_FOLDER$VERSION $TARGET_DIRdists/torbrowser/$VERSION
 
 # Update the URLs in thank-you.js to point to the new files on the mirror
 sed -e "s/%VERSION/$VERSION/g" original.txt > new.txt
