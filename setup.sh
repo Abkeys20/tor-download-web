@@ -19,13 +19,6 @@ then
     git clone https://github.com/wpapper/tor-download-web.git $TARGET_DIR
 fi
 
-echo "Updating tor-download."
-pushd .
-cd $TARGET_DIR
-git reset HEAD --hard $TARGET_DIR
-git pull
-popd
-
 #cd $TARGET_DIR && git pull
 
 echo "Rsyncing files to $TARGET_DIR$DIST_DIR"
@@ -68,12 +61,19 @@ fi
 
 echo "Signatures are valid."
 
-echo "Installing newer version"
-sed -e "s/%VERSION/$VERSION/g" original.txt > new.txt
+echo "Installing newer version and updating tor-download site"
+
+pushd .
+cd $TARGET_DIR
+git reset HEAD --hard $TARGET_DIR
+git pull
+popd
+#sed -e "s/%VERSION/$VERSION/g" "$TARGET_DIRjs/thank-you.js.template" > "$TARGET_DIRjs/thank-you.js"
+
 
 # Add auto-updating to cron to run at a specified interval (One hour? Three hours? Six hours?)
 echo "Adding update check to crontab (/etc/cron.d/tor-mirror.sh). Checking every 1 hour for updates."
 echo "0 * * * * cd \"`pwd`$TARGET_DIR\" && sh setup.sh" > /etc/cron.d/tor-mirror.sh
 
-echo "Finished installing tor browser mirror in $TARGET_DIR."
+echo "Finished installing tor browser mirror version $VERSION in $TARGET_DIR."
 
