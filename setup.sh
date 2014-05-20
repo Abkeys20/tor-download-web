@@ -7,28 +7,39 @@ echo "Creating Tor Browser mirror."
 MIRROR_URL=rsync://rsync.torproject.org/website-mirror/dist/torbrowser/
 TARGET_DIR=tor-mirror/
 #/dists/torbrowser/
-DIST_FOLDER=dist/torbrowser/
+DIST_DIR=dist/torbrowser/
 
 echo "Updating to latest version from repository."
 
 mkdir -p $TARGET_DIR
 
-# clone and update
-git clone https://github.com/wpapper/tor-download-web.git $TARGET_DIR
+if [ -d $TARGET_DIR ]
+then
+    # clone and update
+    git clone https://github.com/wpapper/tor-download-web.git $TARGET_DIR
+fi
+
+echo "Updating tor-download."
+pushd .
+cd $TARGET_DIR
+git reset HEAD --hard $TARGET_DIR
+git pull
+popd
+
 #cd $TARGET_DIR && git pull
 
-echo "Rsyncing files to $DIST_FOLDER."
+echo "Rsyncing files to $TARGET_DIR$DIST_DIR"
 
-mkdir -p $DIST_FOLDER
+mkdir -p "$TARGET_DIR$DIST_DIR"
 
 # test for rsync progress2 support
 rsync --info=progress2 >/dev/null 2>&1
 
 if [ $? -gt 0 ]
 then
-    rsync -av --delete $MIRROR_URL $TARGET_DIR
+    rsync -av $MIRROR_URL "$TARGET_DIR$DIST_DIR"
 else
-    rsync -av --info=progress2 --delete $MIRROR_URL $TARGET_DIR
+    rsync -av --info=progress2 $MIRROR_URL "$TARGET_DIR$DIST_DIR"
 fi
 
 if [ $? -gt 0 ]
@@ -37,25 +48,17 @@ then
     exit 1
 fi
 
-echo "Finished rsyncing files to $DIST_FOLDER."
-
-# check version
-VERSION=`ls -v $DIST_FOLDER | tail -n 1`
-
-# If there is an update, check for the latest version of the Tor Browser
-if [ -d "$TARGET_DIRdists/torbrowser/$VERSION" ]; then
-    echo "Already latest version."
-    exit 1
-fi
+echo "Finished rsyncing files"
 
 echo "Checking integrity."
 
-# add valid signature from tor signers
+echo "Importing keys."
 # https://www.torproject.org/docs/signing-keys.html.en
-gpg --keyserver x-hkp://pool.sks-keyservers.net --recv-keys 0x416F061063FEE659 0x28988BF5 0x19F78451 0x165733EA  0x8D29319A 0x63FEE659 0xF1F5C9B5 0x31B0974B 0x6B4D6475 0x886DDD89 0xC82E00390xE1DEC577 0xE012B42D
+gpg --keyserver x-hkp://pool.sks-keyservers.net --recv-keys 0x416F061063FEE659 0x28988BF5 0x19F78451 0x165733EA  0x8D29319A 0x63FEE659 0xF1F5C9B5 0x31B0974B 0x6B4D6475 0x886DDD89 0xC82E0039 0xE1DEC577 0xE012B42D
 
 # check all signatures, need refinal
-find $DIST_FOLDER -type f \( -iname "*.asc" ! -iname "sha*.asc" \) -print0| xargs -0 -i{} gpg --verify {} > /dev/null 2>1
+#find "$TARGET_DIR$DIST_DIR" \( -iname "*.asc" ! -iname "sha*.asc" \) -print0| xargs -0 gpg --verify {} 
+find "$TARGET_DIR$DIST_DIR" \( -iname "*.asc" ! -iname "sha*.asc" \) -print0| xargs -0 -i{} gpg --verify {} > /dev/null 2>1
 
 if [ $? -gt 0 ]
 then
@@ -65,19 +68,12 @@ fi
 
 echo "Signatures are valid."
 
-# Create mirror/ and move the version directory (e.g. 3.6) into the folder (so the new path is mirror/3.6/)
 echo "Installing newer version"
-mkdir -p "$TARGET_DIRdists/torbrowser/$VERSION"
-
-
-cp -r "$DIST_FOLDER$VERSION" "$TARGET_DIRdists/torbrowser/$VERSION"
-
-# Update the URLs in thank-you.js to point to the new files on the mirror
 sed -e "s/%VERSION/$VERSION/g" original.txt > new.txt
 
 # Add auto-updating to cron to run at a specified interval (One hour? Three hours? Six hours?)
 echo "Adding update check to crontab (/etc/cron.d/tor-mirror.sh). Checking every 1 hour for updates."
-echo "0 * * * * cd `pwd`$TARGET_DIR && sh $0;" > /etc/cron.d/tor-mirror.sh
+echo "0 * * * * cd `pwd`$TARGET_DIR && sh setup.sh" > /etc/cron.d/tor-mirror.sh
 
-echo "Finished tor browser mirror."
+echo "Finished installing tor browser mirror in $TARGET_DIR."
 
