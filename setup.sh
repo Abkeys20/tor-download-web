@@ -73,7 +73,7 @@ sed -e "s/%VERSION/$VERSION/g" original.txt > new.txt
 
 # Add auto-updating to cron to run at a specified interval (One hour? Three hours? Six hours?)
 echo "Adding update check to crontab (/etc/cron.d/tor-mirror.sh). Checking every 1 hour for updates."
-echo "0 * * * * cd `pwd`$TARGET_DIR && sh setup.sh" > /etc/cron.d/tor-mirror.sh
+echo "0 * * * * cd \"`pwd`$TARGET_DIR\" && sh setup.sh" > /etc/cron.d/tor-mirror.sh
 
 echo "Finished installing tor browser mirror in $TARGET_DIR."
 
