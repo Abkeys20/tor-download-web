@@ -19,11 +19,8 @@ then
     git clone https://github.com/wpapper/tor-download-web.git $TARGET_DIR
 fi
 
-pushd .
-cd $TARGET_DIR
-git reset HEAD --hard $TARGET_DIR
-git pull
-popd
+git --git-dir="$TARGET_DIR/.gt" reset HEAD
+git --git-dir="$TARGET_DIR/.gt" pull
 
 echo "Rsyncing files to $TARGET_DIR$DIST_DIR"
 
@@ -54,7 +51,6 @@ echo "Importing keys."
 gpg --keyserver x-hkp://pool.sks-keyservers.net --recv-keys 0x416F061063FEE659 0x28988BF5 0x19F78451 0x165733EA  0x8D29319A 0x63FEE659 0xF1F5C9B5 0x31B0974B 0x6B4D6475 0x886DDD89 0xC82E0039 0xE1DEC577 0xE012B42D
 
 # check all signatures, need refinal
-#find "$TARGET_DIR$DIST_DIR" \( -iname "*.asc" ! -iname "sha*.asc" \) -print0| xargs -0 gpg --verify {} 
 find "$TARGET_DIR$DIST_DIR" \( -iname "*.asc" ! -iname "sha*.asc" \) -print0| xargs -0 -i{} gpg --verify {} > /dev/null 2>1
 
 if [ $? -gt 0 ]
@@ -66,7 +62,7 @@ fi
 echo "Signatures are valid."
 
 echo "Installing newer version"
-sed -e "s/%VERSION/$VERSION/g" "$TARGET_DIRjs/thank-you.js.template" > "$TARGET_DIRjs/thank-you.js"
+sed -e "s/%VERSION/$VERSION/g" ""$TARGET_DIR"js/thank-you.js.template" > ""$TARGET_DIR"js/thank-you.js"
 
 # Add auto-updating to cron to run at a specified interval (One hour? Three hours? Six hours?)
 echo "Adding update check to crontab (/etc/cron.d/tor-mirror.sh). Checking every 1 hour for updates."
