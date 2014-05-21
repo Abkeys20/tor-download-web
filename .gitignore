@@ -4,3 +4,6 @@
 # Ignore files for the Zed editor:
 .zedstate
 tags
+dist
+js/thank-you.js
+
