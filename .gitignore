@@ -5,5 +5,7 @@
 .zedstate
 tags
 dist
+
+# Ignore the modified version of thank-you.js (changed by setup.sh):
 js/thank-you.js
 
