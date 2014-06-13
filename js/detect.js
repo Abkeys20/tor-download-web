@@ -31,10 +31,10 @@ function detectLanguage() {
 	// option. For example, if the user's preference is en-GB, en-US will be
 	// used instead.
 	var language = navigator.language || navigator.userLanguage;
-	var startsWithArray = [ "en", "ar", "de", "es", "fa", "fr", "it", "nl",
-			"pl", "pt", "ru", "vi", "zh" ];
-	var returnWithArray = [ "en-US", "ar", "de", "es-ES", "fa", "fr", "it",
-			"nl", "pl", "pt-PT", "ru", "vi", "zh-CN" ];
+	var startsWithArray = [ "en", "ar", "de", "es", "fa", "fr", "it", "ko", "nl",
+			"pl", "pt", "ru", "tr", "vi", "zh" ];
+	var returnWithArray = [ "en-US", "ar", "de", "es-ES", "fa", "fr", "it", "ko",
+			"nl", "pl", "pt-PT", "ru", "tr", "vi", "zh-CN" ];
 	for ( var i = 0; i < startsWithArray.length; i++) {
 		// Check if the string starts with a given language
 		if (language.lastIndexOf(startsWithArray[i], 0) === 0) {
@@ -139,8 +139,8 @@ function setAboutDownload(language, os) {
 	if (language !== undefined && language !== null && os !== undefined
 			&& os !== null) {
 		// Make the language code human-readable
-		var languageCodes = [ "en-US", "ar", "de", "es-ES", "fa", "fr", "it",
-				"nl", "pl", "pt-PT", "ru", "vi", "zh-CN" ];
+		var languageCodes = [ "en-US", "ar", "de", "es-ES", "fa", "fr", "it", "ko",
+				"nl", "pl", "pt-PT", "ru", "tr", "vi", "zh-CN" ];
 		var arLang = String.fromCharCode(1575, 1604, 1593, 1585, 1576, 1610,
 				1577);
 		// "&#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064a;&#x0629;"
@@ -150,14 +150,11 @@ function setAboutDownload(language, os) {
 		// &#x0641;&#x0627;&#x0631;&#x0633;&#x06cc;
 		var ptLang = String.fromCharCode(80, 111, 114, 116, 117, 103, 117, 234,
 				115);
-		// "&#x0050;&#x006f;&#x0072;&#x0074;&#x0075;&#x0067;&#x0075;&#x00ea;&#x0073;"
-		var ruLang = String.fromCharCode(1056, 1091, 1089, 1089, 1082, 1080,
-				1081);
 		// &#x0420;&#x0443;&#x0441;&#x0441;&#x043a;&#x0438;&#x0439;
 		var zhLang = String.fromCharCode(31616, 20307, 23383);
 		// "&#x7b80;&#x4f53;&#x5b57;"
 		var humanReadable = [ "English", arLang, "Deutsch", "Español", faLang,
-				frLang, "Italiano", "Nederlands", "Polish", ptLang, ruLang,
+				frLang, "Italiano", "Korean", "Nederlands", "Polish", ptLang, "Русский", "Türkçe",
 				"Vietnamese", zhLang ]
 		var humanReadableIndex = languageCodes.indexOf(language);
 		if (humanReadableIndex !== undefined) {
