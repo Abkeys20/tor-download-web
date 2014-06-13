@@ -15,7 +15,7 @@ function detectParameters() {
 }
 
 function setDownload(language, os) {
-	var version = "3.6.1"
+	var version = "3.6.2"
 	// Values taken from the source code of https://www.torproject.org/download/download.html.en
 	var wintbb = 'https://www.torproject.org/dist/torbrowser/' + version + '/torbrowser-install-' + version  + '_'
 			+ language + '.exe';
