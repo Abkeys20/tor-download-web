@@ -7,10 +7,10 @@
 /*
 en-US: Download Tor Browser
 ar: String.fromCharCode()
-de:
+de: Tor Browser herunterladen
 es-ES: Descargar Tor Browser
 fa: String.fromCharCode()
-fr:
+fr: Télécharger Tor Browser
 it:
 pl: Pobierz Tor Browser
 pt-PT:
@@ -23,10 +23,10 @@ zh-CH:
 /*
 en-US: Download
 ar: String.fromCharCode()
-de:
+de: Herunterladen
 es-ES: Descargar
 fa: String.fromCharCode()
-fr:
+fr: Télécharger
 it:
 pl: Pobierz
 pt-PT:
@@ -39,10 +39,10 @@ zh-CH:
 /*
 en-US: Looking for something else? Select other options:
 ar: String.fromCharCode()
-de:
+de: Suchen Sie etwas anderes? Wählen Sie weitere Optionen:
 es-ES: Seleccione otras opciones:
 fa: String.fromCharCode()
-fr:
+fr: Vous cherchez autre chose ? Sélectionnez plus d'options :
 it:
 pl: Szukasz czego&#347; innego? Wybierz jedn&#261; z innych opcji:
 pt-PT:
@@ -55,10 +55,10 @@ zh-CH:
 /*
 en-US: About Tor
 ar: String.fromCharCode()
-de:
+de: Über Tor
 es-ES: Acerca de Tor
 fa: String.fromCharCode()
-fr:
+fr: A propos de Tor
 it:
 pl: O Torze
 pt-PT:
@@ -71,10 +71,10 @@ zh-CH:
 /*
 en-US: Donate
 ar: String.fromCharCode()
-de:
+de: Spenden
 es-ES: Donar
 fa: String.fromCharCode()
-fr:
+fr: Faire un don
 it:
 pl: Wspom&#243;&#380;
 pt-PT:
@@ -87,10 +87,10 @@ zh-CH:
 /*
 en-US: Want to test a beta Tor Browser?
 ar: String.fromCharCode()
-de:
+de: Möchten Sie den beta Tor Browser ausprobieren?
 es-ES: Navegador Experimental
 fa: String.fromCharCode()
-fr:
+fr: Voulez-vous essayer Tor Browser beta ?
 it:
 pl: Chcesz przetestowa&#263; wersj&#281; beta Tor Browser?
 pt-PT:
@@ -103,10 +103,10 @@ zh-CH:
 /*
 en-US: Thank You for Downloading
 ar: String.fromCharCode()
-de:
+de: Vielen Dank
 es-ES: Gracias
 fa: String.fromCharCode()
-fr:
+fr: Merci d'avoir téléchargé Tor Browser
 it:
 pl: Dzi&#281;kujemy za pobranie Tor Browser
 pt-PT:
@@ -119,10 +119,10 @@ zh-CH:
 /*
 en-US: Verify Signatures
 ar: String.fromCharCode()
-de:
+de: Unterschriften überprüfen
 es-ES: Verificar Firmas
 fa: String.fromCharCode()
-fr:
+fr: Vérifier les signatures
 it:
 pl: Zweryfikuj sygnatury
 pt-PT:
@@ -135,10 +135,10 @@ zh-CH:
 /*
 en-US: What is this?
 ar: String.fromCharCode()
-de:
+de: Was ist das?
 es-ES: ¿Qué es esto?
 fa: String.fromCharCode()
-fr:
+fr: Qu'est-ce que c'est ?
 it:
 pl: Co to jest?
 pt-PT:
@@ -151,10 +151,10 @@ zh-CH:
 /*
 en-US: Other Tor Services
 ar: String.fromCharCode()
-de:
+de: Ander Tor Dienste
 es-ES: Otros Servicios
 fa: String.fromCharCode()
-fr:
+fr: D'autres services Tor
 it:
 pl: Inne us&#322;ugi Tora
 pt-PT:
@@ -167,10 +167,10 @@ zh-CH:
 /*
 en-US: Help Using Tor
 ar: String.fromCharCode()
-de:
+de: Helfen Sie Tor zu benutzen
 es-ES: Ayuda con el uso de Tor
 fa: String.fromCharCode()
-fr:
+fr: Aider à utiliser Tor
 it:
 pl: Pomoc z korzystaniu z Tora
 pt-PT:
