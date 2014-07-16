@@ -151,7 +151,7 @@ zh-CH:
 /*
 en-US: Other Tor Services
 ar: String.fromCharCode()
-de: Ander Tor Dienste
+de: Andere Tor Dienste
 es-ES: Otros Servicios
 fa: String.fromCharCode()
 fr: D'autres services Tor
