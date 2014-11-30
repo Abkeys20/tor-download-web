@@ -8,6 +8,7 @@ MIRROR_URL=rsync://rsync.torproject.org/website-mirror/dist/torbrowser/
 TARGET_DIR=tor-mirror/
 #/dists/torbrowser/
 DIST_DIR=dist/torbrowser/
+LOGS_DIR=logs/
 
 echo "Updating to latest version from repository."
 
@@ -48,10 +49,36 @@ echo "Checking integrity."
 
 echo "Importing keys."
 # https://www.torproject.org/docs/signing-keys.html.en
-gpg --keyserver x-hkp://pool.sks-keyservers.net --recv-keys 0x416F061063FEE659 0x28988BF5 0x19F78451 0x165733EA  0x8D29319A 0x63FEE659 0xF1F5C9B5 0x31B0974B 0x6B4D6475 0x886DDD89 0xC82E0039 0xE1DEC577 0xE012B42D
+# Key Fingerprints are downloaded at launch from torproject.org via an HTTPS connection
+wget --quiet -O - https://www.torproject.org/docs/signing-keys.html.en | grep "Key\ fingerprint" | sed 's/.*\=\ //' | tr -d "\ " > "$LOGS_DIRsigning-keys-fingerprints"
+if [ -f "$LOGS_DIRsigning-keys-fingerprints" ]; then
+    gpg --keyserver hkp://keys.gnupg.net/ --fingerprint --recv-keys "$(cat "$LOGS_DIR/signing-keys-fingerprints")"
+else
+    echo "Unable to import keys."
+    exit 1
+fi
+
+echo "Checking for 32bit KeyID duplicates in keyring."
+function do_gpgidchk {
+    gpg --list-keys --fingerprint | grep "Key\ fingerprint"| sed 's/.*\=\ //' | tr -d "\ " | sed 's/.\{32\}//' | sort | uniq -c | sed 's/^\ *//' | grep -v "^1\ "
+    if [ "$?" -eq "0" ]; then
+        echo "WARNING: At least two keys in your keyring share 32bit KeyIDs."
+        echo "         Double check output of \`gpg --list-keys --fingerprint\`"
+        echo "         If you're sure that the KeyID collision is benign (i.e. not malicious) rerun: ${0##*/:-} force"
+        echo "         More Info: https://evil32.com/"
+        exit 1
+    fi
+}
+
+if [ "$1" == "force" ]; then
+    echo "NOTICE: This script will not test whether or not 32bit KeyIDS for any of the keys in your GPG keyring match."
+    echo "        This could be dangerous depending on how you imported your GPG keys. More Info: https://evil32.com/"
+else
+    do_gpgidchk
+fi
 
 # check all signatures, need refinal
-find "$TARGET_DIR$DIST_DIR" \( -iname "*.asc" ! -iname "sha*.asc" \) -print0| xargs -0 -i{} gpg --verify {} > /dev/null 2>1
+find "$TARGET_DIR$DIST_DIR" \( -iname "*.asc" ! -iname "sha*.asc" \) -print0| xargs -0 -i{} gpg --verify {} >> $LOGS_DIRsignature-verify-log 2>1
 
 if [ $? -gt 0 ]
 then
